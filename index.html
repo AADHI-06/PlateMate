@@ -6,54 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            margin: 0%;
+            padding: 0%;
+            overflow-x: hidden;
+        }
+
         .head {
             text-align: center;
-            padding-top: 1vw;
-            height: 8%;
-            width: 100%;
-
+            padding-top: 1vh;
+            height: 8vh;
+            width: 100vw;
         }
 
         .hl {
-            height: 2vw;
+            height: 2vh;
             width: 6%;
             margin-left: 1.5%;
-
-            padding-bottom: 1vw;
+            font-size: large;
+            padding-bottom: 1vh;
             float: left;
             border-radius: 10px;
             color: aliceblue;
         }
 
-
         .hr {
-            height: 2vw;
+            height: 2vh;
             width: 6%;
             margin-right: 1.5%;
+            font-size: large;
             color: aliceblue;
-            padding-bottom: 1vw;
+            padding-bottom: 1vh;
             float: right;
-            border-radius: 10px;
+            border-radius: 2vh;
+            
+        }
+
+        .head p:hover {
+            color: crimson;
+            font-weight: bolder;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 105%;
+            text-shadow:  0px 10px 5px black;
+        }
+
+        .first {
+            background-blend-mode: overlay;
+            place-items: center;
+            background-size: cover;
+            background-position: center;
+            background-image: url('https://assets.vogue.com/photos/63d169f727f1d528635b4287/master/w_1920,c_limit/GettyImages-1292563627.jpg'),
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            height: 100vh;
+            width: 100vw;
         }
 
         .main {
-            padding-top: 8vw;
+            padding-top: 20vh;
             text-align: center;
-            line-height: 2vw;
-
+            line-height: 4vh;
         }
 
         .main button {
             background-color: crimson;
-            height: 3vw;
-            width: 10vw;
+            height: 7vh;
+            width: 14vw;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             border-radius: 2vw;
             font-size: large;
+            color: aliceblue;
+        }
+        .main button:hover{
+            background-color: rgb(128, 13, 36);
+            cursor: pointer;
+            font-size: 130%;
+            box-shadow:0px 0px 10px 5px rgb(84, 77, 77);
+        }
+
+        .space {
+            height: 7vh;
+            width: 100%;
+            background-color: rgb(12, 7, 8);
         }
 
         .searching {
-            width: 100%;
-            height: 32vw;
+            width: 100vw;
+            height: 76vh;
             text-align: center;
             padding-top: 5%;
             background-blend-mode: overlay;
@@ -66,26 +105,15 @@
         .searching p {
             font-size: 400%;
             color: aliceblue;
+            line-height: 1vh;
         }
 
         .searching input {
-            size: 50vw;
-        }
-
-        .first {
-            background-blend-mode: overlay;
-            place-items: center;
-            background-size: cover;
-            background-position: center;
-            background-image: url('https://assets.vogue.com/photos/63d169f727f1d528635b4287/master/w_1920,c_limit/GettyImages-1292563627.jpg'),
-                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-            height: 48.4vw;
-            width: 100%;
-        }
-
-        body {
-            margin: 0%;
-            padding: 0%;
+            width: 35vw;
+            height: 6vh;
+            font-size: 1.4rem;
+            border-radius: 3vh;
+            padding-left:1vw;
         }
 
         .searching1 {
@@ -95,24 +123,18 @@
             background-position: center;
             background-image: url('https://swagath.in/wp-content/uploads/2025/01/Authentic-South-Indian-Dishes-You-Cant-Miss-At-Swagath.jpg'),
                 linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
-            width: 60%;
-            height: 25vw;
-            padding-top: 5%;
+            width: 50vw;
+            height: 40vh;
+            padding: 6vh;
+            padding-top: 10vh;
+            border-radius: 5vh;
 
-        }
-        .space
-        {
-            height: 8vw;
-            width: 100%;
-            background-color: rgb(37, 8, 14);
         }
     </style>
 </head>
 
 <body>
     <div class="first">
-
-
         <div class="head">
             <div class="hl">
                 <p>Home</p>
@@ -121,51 +143,43 @@
                 <p>Gallery</p>
             </div>
             <div class="hl">
-                <p>About US</p>
+                <p>About Us</p>
             </div>
 
             <div class="hr">
-                <p>Home</p>
+                <p>Login</p>
             </div>
             <div class="hr">
-                <p>Gallery</p>
+                <p>Contact Us</p>
             </div>
             <div class="hr">
-                <p>About US</p>
+                <p>About Us</p>
             </div>
             <center>
-
                 <img src="https://scontent.fbom3-1.fna.fbcdn.net/v/t39.30808-1/431667935_335151069531660_8403534902070734696_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=N6vmPg2maNMQ7kNvgF9sAWr&_nc_oc=AdhmN7kULrE08r2ZIb8ZPLHL-YBCTzJOWTIJwse0eKCyG15VhYu7qxDUAgoiQ9j2Q-I&_nc_zt=24&_nc_ht=scontent.fbom3-1.fna&_nc_gid=AwHvEm11xcg8wtHfn19g97c&oh=00_AYALXfTMJWTxlEBFgJH2LtCSAheB3vShDvsCbXGrxGlPWQ&oe=67B234F3"
                     alt="platemate" height="4%" width="4%">
-
             </center>
 
         </div>
         <div class="main">
-            <h1 style="font-size:6vw;color: rgb(255, 255, 255);font-family: serif;">PLATEMATE</h1>
-            <p style="font-size:4vw;color: rgb(255, 255, 255);font-family: serif;">Your Partner in Healthy Eating</p>
-            <button>Search</button>
+            <h1 style="font-size:14vh;color: rgb(255, 255, 255);font-family:serif;">PLATEMATE</h1>
+            <p style="font-size:7vh;color: rgb(255, 255, 255);font-family: serif;">Your Partner in Healthy Eating</p>
+            <a href="#a1"><button>SEARCH</button></a>
         </div>
     </div>
-    <div class="space">
-
-    </div>
-
-    <div class="searching">
+    <div class="space" id="a1"></div>
+    <div class="searching" id="searchingid">
         <center>
             <div class="searching1">
-                <label for="ser">
+                <label for="ser" id="serlabelid">
                     <p>Type the food name : </p>
                 </label>
                 <br><br>
-                <input type="text">
+                <input type="text" id="searchboxid">
             </div>
         </center>
     </div>
-
-    <div class="space">
-
-    </div>
+    <div class="space"></div>
 
 </body>
 
