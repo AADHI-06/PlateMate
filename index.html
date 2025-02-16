@@ -28,9 +28,10 @@
             width: 100vw;
             /* background-color: rgb(0, 0, 0); */
         }
-        .head img{
+
+        .head img {
             margin-top: 8vh;
-            height:350%;
+            height: 350%;
         }
 
         .nav-left {
@@ -48,7 +49,7 @@
             .nav-left {
                 flex-direction: column;
                 flex-wrap: wrap;
-                gap:2vh;
+                gap: 2vh;
                 padding-top: 10vh;
                 padding-left: 5vw;
             }
@@ -56,17 +57,17 @@
             .nav-right {
                 flex-direction: column;
                 flex-wrap: wrap;
-                gap:2vh;
+                gap: 2vh;
                 padding-top: 10vh;
                 padding-right: 5vw;
             }
 
-            .head img{
+            .head img {
                 margin-top: 10vh;
             }
 
         }
-        
+
 
         .nav-item {
             font-size: clamp(1rem, 2vw, 1.2rem);
@@ -118,10 +119,10 @@
             margin-top: 0;
         }
 
-        .buttondiv{
+        .buttondiv {
             display: flex;
             width: clamp(250px, 50vw, 600px);
-            height:auto;
+            height: auto;
             justify-content: space-between;
         }
 
@@ -162,13 +163,11 @@
         .searching1 {
             display: flex;
             flex-direction: column;
-             align-items: center;
+            align-items: center;
             justify-content: center;
             text-align: center;
-            flex-wrap: wrap;
             width: 50vw;
             height: 50vh;
-            /* padding: 10vh; */
             border-radius: 5vh;
             background-blend-mode: overlay;
             background-size: cover;
@@ -178,7 +177,7 @@
         }
 
         .searching p {
-            font-size: 4vw;
+            font-size: 3vw;
             color: aliceblue;
             line-height: 1vh;
         }
@@ -191,13 +190,13 @@
             padding-left: 1vw;
         }
 
-        .bmi
-        {
+        .bmi {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             width: 100vw;
             height: 86vh;
-            padding-left: 5vw;
-            padding-top: 9vh;
             background-size: cover;
             background-position: center;
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -205,49 +204,93 @@
         }
 
         .bmi p {
-            font-size: 3vw;
+            font-size: 2.5vw;
             color: aliceblue;
         }
 
         .bmi input {
-            width: 20vw;
+            width: 15vw;
             height: 6vh;
             font-size: 1.4rem;
             border-radius: 3vh;
         }
-        
-        #ht
-        {
+
+        #ht {
             float: left;
-            margin-left: 20vw;
+            /* margin-left: 20vw; */
             text-align: center;
             font-size: clamp(1rem, 1.5vw, 1.5rem);
         }
 
-        #wt
-        {
+        #wt {
             float: right;
-            margin-right: 20vw;
+            /* margin-right: 20vw; */
             text-align: center;
             font-size: clamp(1rem, 1.5vw, 1.5rem);
         }
 
-        #calbmi
+        .bmi1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 50vw;
+            height: 50vh;
+            border-radius: 5vh;
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            background-image: url('https://petsci.co.uk/wp-content/uploads/2012/01/weight-watching1.jpg'),
+                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+            padding: 2vh;
+        }
+
+        .bmi1 p {
+            font-size: 2.5vw;
+            color: aliceblue;
+            margin-bottom: 2vh;
+        }
+
+        .bmi1 input {
+            width: 80%;
+            max-width: 300px;
+            height: 6vh;
+            font-size: 1.2rem;
+            border-radius: 3vh;
+            margin-bottom: 2vh;
+            text-align: center;
+        }
+
+        #calbmi {
+            background-color: crimson;
+            height: 7vh;
+            width: 15vw;
+            max-width: 200px;
+            font-family: 'Lucida Sans', sans-serif;
+            border-radius: 2vw;
+            font-size: 1.2rem;
+            color: aliceblue;
+            cursor: pointer;
+            margin-top: 2vh;
+        }
+
+        #calbmi:hover {
+            box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
+        }
+
+        #searchfood
         {
             background-color: crimson;
             height: 7vh;
-            width: clamp(100px, 20vw, 250px);
+            width: 15vw;
+            max-width: 200px;
             font-family: 'Lucida Sans', sans-serif;
             border-radius: 2vw;
-            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-size: 1.2rem;
             color: aliceblue;
             cursor: pointer;
-            margin-top: 20vh;
-        }
-
-        #calbmi:hover
-        {
-            box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
+            margin-top: 2vh;
         }
 
     </style>
@@ -265,10 +308,9 @@
 
             <!-- Center Logo -->
             <!-- <img src="https://scontent.fbom3-1.fna.fbcdn.net/v/t39.30808-1/431667935_335151069531660_8403534902070734696_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=N6vmPg2maNMQ7kNvgF9sAWr&_nc_oc=AdhmN7kULrE08r2ZIb8ZPLHL-YBCTzJOWTIJwse0eKCyG15VhYu7qxDUAgoiQ9j2Q-I&_nc_zt=24&_nc_ht=scontent.fbom3-1.fna&_nc_gid=AwHvEm11xcg8wtHfn19g97c&oh=00_AYALXfTMJWTxlEBFgJH2LtCSAheB3vShDvsCbXGrxGlPWQ&oe=67B234F3" -->
-                <!-- alt="platemate" height="40" width="40"> -->
+            <!-- alt="platemate" height="40" width="40"> -->
 
-                <img src="platematelogo.png"
-                alt="platemate">
+            <img src="platematelogo.png" alt="platemate">
 
             <!-- Right Navigation -->
             <div class="nav-right">
@@ -295,20 +337,26 @@
             <label for="ser">
                 <p>Type the food name:</p>
             </label>
+
             <input type="text" id="searchboxid">
+            <br><br>
+            <a href="#"><button id="searchfood">Search</button></a>
         </div>
     </div>
 
     <div class="space" id="a2"></div>
     <div class="bmi">
-        <label for="hgt">
-            <p>Enter your Height(cm) and Weight(kgs) : </p>
-        </label>
-        <br>
-        <br>
-        <input type="number" id="ht" placeholder="Height[cm]">
-        <input type="number" id="wt" placeholder="Weight[kgs]">
-        <a href="#"><button id="calbmi">Calculate BMI</button></a>
+        <div class="bmi1">
+            <label for="hgt">
+                <p>Enter your Height(cm) and Weight(kgs) : </p>
+            </label>
+            <br>
+            <br>
+            <input type="number" id="ht" placeholder="Height[cm]">
+            <input type="number" id="wt" placeholder="Weight[kgs]">
+
+            <a href="#"><button id="calbmi">Calculate BMI</button></a>
+        </div>
     </div>
     <div class="space"></div>
 </body>
