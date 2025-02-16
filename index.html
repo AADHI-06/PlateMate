@@ -80,7 +80,6 @@
             color: crimson;
             font-weight: bolder;
             text-decoration: underline;
-            text-shadow: 0px 10px 5px black;
         }
 
         .first {
@@ -138,7 +137,6 @@
         }
 
         .main button:hover {
-            background-color: rgb(128, 13, 36);
             box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
         }
 
@@ -192,6 +190,66 @@
             border-radius: 3vh;
             padding-left: 1vw;
         }
+
+        .bmi
+        {
+            text-align: center;
+            width: 100vw;
+            height: 86vh;
+            padding-left: 5vw;
+            padding-top: 9vh;
+            background-size: cover;
+            background-position: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://petsci.co.uk/wp-content/uploads/2012/01/weight-watching1.jpg');
+        }
+
+        .bmi p {
+            font-size: 3vw;
+            color: aliceblue;
+        }
+
+        .bmi input {
+            width: 20vw;
+            height: 6vh;
+            font-size: 1.4rem;
+            border-radius: 3vh;
+        }
+        
+        #ht
+        {
+            float: left;
+            margin-left: 20vw;
+            text-align: center;
+            font-size: clamp(1rem, 1.5vw, 1.5rem);
+        }
+
+        #wt
+        {
+            float: right;
+            margin-right: 20vw;
+            text-align: center;
+            font-size: clamp(1rem, 1.5vw, 1.5rem);
+        }
+
+        #calbmi
+        {
+            background-color: crimson;
+            height: 7vh;
+            width: clamp(100px, 20vw, 250px);
+            font-family: 'Lucida Sans', sans-serif;
+            border-radius: 2vw;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: aliceblue;
+            cursor: pointer;
+            margin-top: 20vh;
+        }
+
+        #calbmi:hover
+        {
+            box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
+        }
+
     </style>
 </head>
 
@@ -209,7 +267,7 @@
             <!-- <img src="https://scontent.fbom3-1.fna.fbcdn.net/v/t39.30808-1/431667935_335151069531660_8403534902070734696_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=N6vmPg2maNMQ7kNvgF9sAWr&_nc_oc=AdhmN7kULrE08r2ZIb8ZPLHL-YBCTzJOWTIJwse0eKCyG15VhYu7qxDUAgoiQ9j2Q-I&_nc_zt=24&_nc_ht=scontent.fbom3-1.fna&_nc_gid=AwHvEm11xcg8wtHfn19g97c&oh=00_AYALXfTMJWTxlEBFgJH2LtCSAheB3vShDvsCbXGrxGlPWQ&oe=67B234F3" -->
                 <!-- alt="platemate" height="40" width="40"> -->
 
-                <img src="images/platematelogo.png"
+                <img src="platematelogo.png"
                 alt="platemate">
 
             <!-- Right Navigation -->
@@ -224,8 +282,8 @@
             <h1>PLATEMATE</h1>
             <p>Your Partner in Healthy Eating</p>
             <div class="buttondiv">
-            <a href="#a1"><button id="searchbutton1">SEARCH</button></a>
-            <a href="#a1"><button id="bmibutton1">Calculate BMI</button></a>
+                <a href="#a1"><button id="searchbutton1">search</button></a>
+                <a href="#a2"><button id="bmibutton1">calculate BMI</button></a>
             </div>
         </div>
     </div>
@@ -241,6 +299,17 @@
         </div>
     </div>
 
+    <div class="space" id="a2"></div>
+    <div class="bmi">
+        <label for="hgt">
+            <p>Enter your Height(cm) and Weight(kgs) : </p>
+        </label>
+        <br>
+        <br>
+        <input type="number" id="ht" placeholder="Height[cm]">
+        <input type="number" id="wt" placeholder="Weight[kgs]">
+        <a href="#"><button id="calbmi">Calculate BMI</button></a>
+    </div>
     <div class="space"></div>
 </body>
 
