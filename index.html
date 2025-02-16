@@ -6,104 +6,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            margin: 0%;
-            padding: 0%;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
         }
 
         .head {
-            text-align: center;
-            padding-top: 1vh;
-            height: 8vh;
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2vh 4vw;
+            height: 10vh;
             width: 100vw;
+            /* background-color: rgb(0, 0, 0); */
+        }
+        .head img{
+            margin-top: 8vh;
+            height:350%;
         }
 
-        .hl {
-            height: 2vh;
-            width: 6%;
-            margin-left: 1.5%;
-            font-size: large;
+        .nav-left {
+            display: flex;
+            gap: 2vw;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 2vw;
+
+        }
+
+        @media (max-width: 480px) {
+            .nav-left {
+                flex-direction: column;
+                flex-wrap: wrap;
+                gap:2vh;
+                padding-top: 10vh;
+                padding-left: 5vw;
+            }
+
+            .nav-right {
+                flex-direction: column;
+                flex-wrap: wrap;
+                gap:2vh;
+                padding-top: 10vh;
+                padding-right: 5vw;
+            }
+
+            .head img{
+                margin-top: 10vh;
+            }
+
+        }
+        
+
+        .nav-item {
+            font-size: clamp(1rem, 2vw, 1.2rem);
             padding-bottom: 1vh;
-            float: left;
             border-radius: 10px;
             color: aliceblue;
+            cursor: pointer;
         }
 
-        .hr {
-            height: 2vh;
-            width: 6%;
-            margin-right: 1.5%;
-            font-size: large;
-            color: aliceblue;
-            padding-bottom: 1vh;
-            float: right;
-            border-radius: 2vh;
-            
-        }
-
-        .head p:hover {
+        .nav-item:hover {
             color: crimson;
             font-weight: bolder;
             text-decoration: underline;
-            cursor: pointer;
-            font-size: 105%;
-            text-shadow:  0px 10px 5px black;
+            text-shadow: 0px 10px 5px black;
         }
 
         .first {
-            background-blend-mode: overlay;
-            place-items: center;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            /* justify-content: center; */
+            text-align: center;
             background-size: cover;
             background-position: center;
-            background-image: url('https://assets.vogue.com/photos/63d169f727f1d528635b4287/master/w_1920,c_limit/GettyImages-1292563627.jpg'),
-                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://assets.vogue.com/photos/63d169f727f1d528635b4287/master/w_1920,c_limit/GettyImages-1292563627.jpg');
             height: 100vh;
             width: 100vw;
         }
 
         .main {
-            padding-top: 20vh;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 15vh;
             line-height: 4vh;
+        }
+
+        .main h1 {
+            padding-top: 15vh;
+            font-size: 7vw;
+            color: rgb(255, 255, 255);
+            font-family: serif;
+        }
+
+        .main p {
+            font-size: 3.5vw;
+            color: rgb(255, 255, 255);
+            font-family: serif;
+            margin-top: 0;
+        }
+
+        .buttondiv{
+            display: flex;
+            width: clamp(250px, 50vw, 600px);
+            height:auto;
+            justify-content: space-between;
         }
 
         .main button {
             background-color: crimson;
             height: 7vh;
-            width: 14vw;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: clamp(100px, 20vw, 250px);
+            font-family: 'Lucida Sans', sans-serif;
             border-radius: 2vw;
-            font-size: large;
+            font-size: clamp(1rem, 2vw, 1.5rem);
             color: aliceblue;
-        }
-        .main button:hover{
-            background-color: rgb(128, 13, 36);
             cursor: pointer;
-            font-size: 130%;
-            box-shadow:0px 0px 10px 5px rgb(84, 77, 77);
+        }
+
+        .main button:hover {
+            background-color: rgb(128, 13, 36);
+            box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
         }
 
         .space {
             height: 7vh;
-            width: 100%;
+            width: 100vw;
             background-color: rgb(12, 7, 8);
         }
 
         .searching {
-            width: 100vw;
-            height: 76vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding-top: 5%;
+            width: 100vw;
+            height: 86vh;
+            background-size: cover;
+            background-position: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://swagath.in/wp-content/uploads/2025/01/Authentic-South-Indian-Dishes-You-Cant-Miss-At-Swagath.jpg');
+        }
+
+        .searching1 {
+            display: flex;
+            flex-direction: column;
+             align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-wrap: wrap;
+            width: 50vw;
+            height: 50vh;
+            /* padding: 10vh; */
+            border-radius: 5vh;
             background-blend-mode: overlay;
             background-size: cover;
+            background-position: center;
             background-image: url('https://swagath.in/wp-content/uploads/2025/01/Authentic-South-Indian-Dishes-You-Cant-Miss-At-Swagath.jpg'),
-                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-            background-color: gray;
+                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
         }
 
         .searching p {
-            font-size: 400%;
+            font-size: 4vw;
             color: aliceblue;
             line-height: 1vh;
         }
@@ -113,22 +190,7 @@
             height: 6vh;
             font-size: 1.4rem;
             border-radius: 3vh;
-            padding-left:1vw;
-        }
-
-        .searching1 {
-            background-blend-mode: overlay;
-            place-items: center;
-            background-size: cover;
-            background-position: center;
-            background-image: url('https://swagath.in/wp-content/uploads/2025/01/Authentic-South-Indian-Dishes-You-Cant-Miss-At-Swagath.jpg'),
-                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
-            width: 50vw;
-            height: 40vh;
-            padding: 6vh;
-            padding-top: 10vh;
-            border-radius: 5vh;
-
+            padding-left: 1vw;
         }
     </style>
 </head>
@@ -136,51 +198,50 @@
 <body>
     <div class="first">
         <div class="head">
-            <div class="hl">
-                <p>Home</p>
-            </div>
-            <div class="hl">
-                <p>Gallery</p>
-            </div>
-            <div class="hl">
-                <p>About Us</p>
+            <!-- Left Navigation -->
+            <div class="nav-left">
+                <div class="nav-item">Home</div>
+                <div class="nav-item">Gallery</div>
+                <div class="nav-item">About Us</div>
             </div>
 
-            <div class="hr">
-                <p>Login</p>
-            </div>
-            <div class="hr">
-                <p>Contact Us</p>
-            </div>
-            <div class="hr">
-                <p>About Us</p>
-            </div>
-            <center>
-                <img src="https://scontent.fbom3-1.fna.fbcdn.net/v/t39.30808-1/431667935_335151069531660_8403534902070734696_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=N6vmPg2maNMQ7kNvgF9sAWr&_nc_oc=AdhmN7kULrE08r2ZIb8ZPLHL-YBCTzJOWTIJwse0eKCyG15VhYu7qxDUAgoiQ9j2Q-I&_nc_zt=24&_nc_ht=scontent.fbom3-1.fna&_nc_gid=AwHvEm11xcg8wtHfn19g97c&oh=00_AYALXfTMJWTxlEBFgJH2LtCSAheB3vShDvsCbXGrxGlPWQ&oe=67B234F3"
-                    alt="platemate" height="4%" width="4%">
-            </center>
+            <!-- Center Logo -->
+            <!-- <img src="https://scontent.fbom3-1.fna.fbcdn.net/v/t39.30808-1/431667935_335151069531660_8403534902070734696_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=N6vmPg2maNMQ7kNvgF9sAWr&_nc_oc=AdhmN7kULrE08r2ZIb8ZPLHL-YBCTzJOWTIJwse0eKCyG15VhYu7qxDUAgoiQ9j2Q-I&_nc_zt=24&_nc_ht=scontent.fbom3-1.fna&_nc_gid=AwHvEm11xcg8wtHfn19g97c&oh=00_AYALXfTMJWTxlEBFgJH2LtCSAheB3vShDvsCbXGrxGlPWQ&oe=67B234F3" -->
+                <!-- alt="platemate" height="40" width="40"> -->
 
+                <img src="images/platematelogo.png"
+                alt="platemate">
+
+            <!-- Right Navigation -->
+            <div class="nav-right">
+                <div class="nav-item">About Us</div>
+                <div class="nav-item">Contact Us</div>
+                <div class="nav-item">Login</div>
+            </div>
         </div>
+
         <div class="main">
-            <h1 style="font-size:14vh;color: rgb(255, 255, 255);font-family:serif;">PLATEMATE</h1>
-            <p style="font-size:7vh;color: rgb(255, 255, 255);font-family: serif;">Your Partner in Healthy Eating</p>
-            <a href="#a1"><button>SEARCH</button></a>
+            <h1>PLATEMATE</h1>
+            <p>Your Partner in Healthy Eating</p>
+            <div class="buttondiv">
+            <a href="#a1"><button id="searchbutton1">SEARCH</button></a>
+            <a href="#a1"><button id="bmibutton1">Calculate BMI</button></a>
+            </div>
         </div>
     </div>
-    <div class="space" id="a1"></div>
-    <div class="searching" id="searchingid">
-        <center>
-            <div class="searching1">
-                <label for="ser" id="serlabelid">
-                    <p>Type the food name : </p>
-                </label>
-                <br><br>
-                <input type="text" id="searchboxid">
-            </div>
-        </center>
-    </div>
-    <div class="space"></div>
 
+    <div class="space" id="a1"></div>
+
+    <div class="searching">
+        <div class="searching1">
+            <label for="ser">
+                <p>Type the food name:</p>
+            </label>
+            <input type="text" id="searchboxid">
+        </div>
+    </div>
+
+    <div class="space"></div>
 </body>
 
 </html>
