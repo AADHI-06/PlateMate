@@ -8,7 +8,9 @@
     <style>
         * {
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
+
 
         body {
             margin: 0;
@@ -18,7 +20,7 @@
 
         .head {
             display: flex;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             justify-content: space-between;
@@ -29,45 +31,90 @@
             /* background-color: rgb(0, 0, 0); */
         }
 
+        .toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
         .head img {
-            margin-top: 8vh;
-            height: 350%;
+            margin-top: 5vh;
+            height: 300%;
+            order: 1;
         }
 
-        .nav-left {
+        .tog {
             display: flex;
-            gap: 2vw;
+            margin-top: 0;
+            padding-top: 5vh;
+            order: 2;
         }
 
-        .nav-right {
+        .navi {
             display: flex;
-            gap: 2vw;
+            gap: 4vw;
+            margin-right: 1vw;
+
 
         }
 
-        @media (max-width: 480px) {
-            .nav-left {
-                flex-direction: column;
-                flex-wrap: wrap;
-                gap: 2vh;
-                padding-top: 10vh;
-                padding-left: 5vw;
+        @media (max-width: 620px) {
+
+            .head {
+                display: flex;
             }
 
-            .nav-right {
+
+            .tog {
+                display: none;
+                /* Initially hidden */
+                flex-direction: column;
+                align-items: center;
+                width: 65vw;
+                height: 100vh;
+                background-color: crimson;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 10;
+                opacity: 0.9;
+            }
+
+
+
+
+
+
+            .navi {
                 flex-direction: column;
                 flex-wrap: wrap;
-                gap: 2vh;
-                padding-top: 10vh;
-                padding-right: 5vw;
+                padding-top: 5vh;
+                gap: 4vh;
+                order: 2;
+
             }
 
             .head img {
-                margin-top: 10vh;
+                order: 2;
+                margin-top: 4vh;
+                height: 200%;
+            }
+
+            .toggle {
+                display: block;
+                order: 2;
+                z-index: 100;
+                color: white;
+                margin-top: 0;
+                margin-right: 2vw;
+
+            }
+
+            .toggle:hover {
+                color: rgb(0, 0, 0);
             }
 
         }
-
 
         .nav-item {
             font-size: clamp(1rem, 2vw, 1.2rem);
@@ -142,7 +189,7 @@
         }
 
         .space {
-            height: 7vh;
+            height: 14vh;
             width: 100vw;
             background-color: rgb(12, 7, 8);
         }
@@ -177,18 +224,47 @@
         }
 
         .searching p {
-            font-size: 3vw;
+            font-size: clamp(1.6rem, 3vw, 5rem);
             color: aliceblue;
-            line-height: 1vh;
+            line-height: 2.5vh;
         }
 
-        .searching input {
+        #searchboxid {
             width: 35vw;
             height: 6vh;
             font-size: 1.4rem;
             border-radius: 3vh;
             padding-left: 1vw;
         }
+
+        #searchfood {
+            background-color: crimson;
+            height: 7vh;
+            width: clamp(100px, 20vw, 250px);
+            max-width: 200px;
+            font-family: 'Lucida Sans', sans-serif;
+            border-radius: 2vw;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: aliceblue;
+            cursor: pointer;
+            margin-top: 2vh;
+        }
+
+        #searchfood:hover {
+            box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
+        }
+
+
+
+
+
+
+
+
+        /* #backtohome {
+            background-image: url();
+
+        } */
 
         .bmi {
             display: flex;
@@ -203,26 +279,14 @@
                 url('https://petsci.co.uk/wp-content/uploads/2012/01/weight-watching1.jpg');
         }
 
-        .bmi p {
-            font-size: 2.5vw;
-            color: aliceblue;
-        }
-
-        .bmi input {
-            width: 15vw;
-            height: 6vh;
-            font-size: 1.4rem;
-            border-radius: 3vh;
-        }
-
-        #ht {
+        #htboxid {
             float: left;
             /* margin-left: 20vw; */
             text-align: center;
             font-size: clamp(1rem, 1.5vw, 1.5rem);
         }
 
-        #wt {
+        #wtboxid {
             float: right;
             /* margin-right: 20vw; */
             text-align: center;
@@ -247,9 +311,9 @@
         }
 
         .bmi1 p {
-            font-size: 2.5vw;
+            font-size: clamp(1.3rem, 2.8vw, 4.5rem);
             color: aliceblue;
-            margin-bottom: 2vh;
+            line-height: 2.5vh;
         }
 
         .bmi1 input {
@@ -265,11 +329,11 @@
         #calbmi {
             background-color: crimson;
             height: 7vh;
-            width: 15vw;
+            width: clamp(100px, 20vw, 250px);
             max-width: 200px;
             font-family: 'Lucida Sans', sans-serif;
             border-radius: 2vw;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.5rem);
             color: aliceblue;
             cursor: pointer;
             margin-top: 2vh;
@@ -278,45 +342,36 @@
         #calbmi:hover {
             box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
         }
-
-        #searchfood
-        {
-            background-color: crimson;
-            height: 7vh;
-            width: 15vw;
-            max-width: 200px;
-            font-family: 'Lucida Sans', sans-serif;
-            border-radius: 2vw;
-            font-size: 1.2rem;
-            color: aliceblue;
-            cursor: pointer;
-            margin-top: 2vh;
-        }
-
     </style>
 </head>
 
 <body>
+    <script>
+
+        function toggle() {
+            const tog1 = document.querySelector(".tog");
+            if (tog1.style.display === "flex") {
+                tog1.style.display = "none";
+            }
+            else {
+                tog1.style.display = "flex";
+            }
+        }
+
+    </script>
     <div class="first">
         <div class="head">
-            <!-- Left Navigation -->
-            <div class="nav-left">
-                <div class="nav-item">Home</div>
-                <div class="nav-item">Gallery</div>
-                <div class="nav-item">About Us</div>
-            </div>
-
-            <!-- Center Logo -->
-            <!-- <img src="https://scontent.fbom3-1.fna.fbcdn.net/v/t39.30808-1/431667935_335151069531660_8403534902070734696_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=N6vmPg2maNMQ7kNvgF9sAWr&_nc_oc=AdhmN7kULrE08r2ZIb8ZPLHL-YBCTzJOWTIJwse0eKCyG15VhYu7qxDUAgoiQ9j2Q-I&_nc_zt=24&_nc_ht=scontent.fbom3-1.fna&_nc_gid=AwHvEm11xcg8wtHfn19g97c&oh=00_AYALXfTMJWTxlEBFgJH2LtCSAheB3vShDvsCbXGrxGlPWQ&oe=67B234F3" -->
-            <!-- alt="platemate" height="40" width="40"> -->
-
             <img src="images/platematelogo.png" alt="platemate">
+            <div class="toggle" onclick="toggle()">&#9776;</div>
+            <div class="tog">
 
-            <!-- Right Navigation -->
-            <div class="nav-right">
-                <div class="nav-item">About Us</div>
-                <div class="nav-item">Contact Us</div>
-                <div class="nav-item">Login</div>
+                <div class="navi">
+                    <div class="nav-item">Home</div>
+                    <div class="nav-item">Gallery</div>
+                    <div class="nav-item">About Us</div>
+                    <div class="nav-item">Contact Us</div>
+                    <div class="nav-item">Login</div>
+                </div>
             </div>
         </div>
 
@@ -331,7 +386,18 @@
     </div>
 
     <div class="space" id="a1"></div>
+    <script>
+        function searchresult() {
+            var foodname = document.getElementById("searchboxid").value; 
 
+            if (foodname) {
+                window.location.href = `resultfoods.html?foodname=${encodeURIComponent(foodname)}`;
+            } else {
+                alert("Enter the food name");
+            }
+        }
+
+    </script>
     <div class="searching">
         <div class="searching1">
             <label for="ser">
@@ -340,22 +406,29 @@
 
             <input type="text" id="searchboxid">
             <br><br>
-            <a href="#"><button id="searchfood">Search</button></a>
+            <button id="searchfood" onclick="searchresult()">Search</button>
         </div>
     </div>
+
+
+
+
+
+
+
 
     <div class="space" id="a2"></div>
     <div class="bmi">
         <div class="bmi1">
             <label for="hgt">
-                <p>Enter your Height(cm) and Weight(kgs) : </p>
+                <p>Enter your Height and Weight : </p>
             </label>
             <br>
             <br>
-            <input type="number" id="ht" placeholder="Height[cm]">
-            <input type="number" id="wt" placeholder="Weight[kgs]">
+            <input type="number" id="htboxid" placeholder="Height in cm">
+            <input type="number" id="wtboxid" placeholder="Weight in kgs">
 
-            <a href="#"><button id="calbmi">Calculate BMI</button></a>
+            <a href=""><button id="calbmi">Calculate BMI</button></a>
         </div>
     </div>
     <div class="space"></div>
