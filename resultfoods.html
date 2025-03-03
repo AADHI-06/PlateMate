@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .head {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2vh 4vw;
+            height: 10vh;
+            width: 100vw;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .head img {
+            margin-top: 1vh;
+            height: 200%;
+            order: 1;
+        }
+
+        .tog {
+            display: flex;
+            margin-top: 0;
+            padding-top: 5vh;
+            order: 2;
+        }
+
+        .navi {
+            display: flex;
+            gap: 4vw;
+            margin-right: 1vw;
+
+
+        }
+
+        @media (max-width: 620px) {
+
+            .head {
+                display: flex;
+            }
+
+
+            .tog {
+                display: none;
+                /* Initially hidden */
+                flex-direction: column;
+                align-items: center;
+                width: 65vw;
+                height: 100vh;
+                background-color: crimson;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 10;
+                opacity: 0.9;
+            }
+
+
+
+
+
+
+            .navi {
+                flex-direction: column;
+                flex-wrap: wrap;
+                padding-top: 5vh;
+                gap: 4vh;
+                order: 2;
+
+            }
+
+            .head img {
+                order: 2;
+                margin-top: 1vh;
+                height: 160%;
+            }
+
+            .toggle {
+                display: block;
+                order: 2;
+                z-index: 100;
+                color: white;
+                margin-top: 0;
+                margin-right: 2vw;
+
+            }
+
+            .toggle:hover {
+                color: rgb(0, 0, 0);
+            }
+
+        }
+
+        .nav-item {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            padding-bottom: 1vh;
+            border-radius: 10px;
+            color: aliceblue;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            color: crimson;
+            font-weight: bolder;
+            text-decoration: underline;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .result {
+            display: flex;
+            flex-direction: column;
+            /* text-align: center; */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            height: 95vh;
+            width: 100vw;
+            margin-top: 5vh;
+        }
+
+
+
+        /* .r_searchbar {
+            display: flex;
+            height: 20vh;
+            width: 100vw;
+            justify-content: center;
+            background-color: aquamarine;
+
+        }
+
+        #r_searchlabel {
+            font-size: clamp(1.2rem, 2.2vw, 2.8rem);
+            margin-right: 0.5vw;
+            margin-top: 4vh;
+
+        }
+
+        .col_search {
+            margin-right: 1vw;
+            margin-top: 4vh;
+        }
+
+        #r_searchboxid {
+            width: 25vw;
+            height: 5vh;
+            font-size: 1rem;
+            border-radius: 1vw;
+        }
+
+        #r_searchfood {
+            background-color: crimson;
+            height: 5vh;
+            width: clamp(60px, 15vw, 150px);
+            max-width: 150px;
+            font-family: 'Lucida Sans', sans-serif;
+            border-radius: 1vw;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: aliceblue;
+            cursor: pointer;
+        }
+
+
+        #r_searchfood:hover {
+            box-shadow: 0px 0px 5px 3px rgb(84, 77, 77);
+        } */
+
+        .r_content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-size: cover;
+            background-position: center;
+            padding-left: 2vw;
+            padding-right: 2vw;
+            background-color: black;
+        }
+
+        #r_fnameid {
+            font-size: 3vw;
+            text-align: center;
+            background-color: aliceblue;
+            color: black;
+            margin-top: 10vh;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+        }
+
+        .r_foodimg {
+            background-color: cadetblue;
+            width: 15vw;
+            height: auto;
+        }
+
+        .r_info {
+            background-color: burlywood;
+            width: 50vw;
+            line-height: 4vh;
+            font-size: clamp(1rem, 1.2vw, 3rem);
+            padding: 2vw;
+        }
+
+        .r_info p {
+            font-weight: bold;
+            display: inline;
+            font-size: clamp(1rem, 1.2vw, 3rem);
+        }
+
+        .r_table {
+            background-color: aqua;
+            width: 30vw;
+        }
+
+        .r_table table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            width: 85%;
+
+        }
+
+        .r_table th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            height: 4vh;
+            text-align: center;
+            font-size: clamp(1rem, 1.2vw, 3.5rem);
+        }
+
+        .r_table th {
+            width: 65%;
+        }
+
+        .r_table td {
+            width: 35%;
+        }
+
+        .ser_again {
+            text-align: center;
+        }
+
+        #r_ser_againid {
+            width: 30vw;
+            height: 5vh;
+            margin-top: 25vh;
+        }
+
+
+
+
+        @media(max-width: 1080px) {
+
+            .result {
+                margin-top: 0;
+            }
+
+            /* .r_searchbar {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            #r_searchlabel {
+                font-size: clamp(1.6rem, 3vw, 3rem);
+                margin-top: 0;
+            } */
+
+            .r_content {
+                flex-direction: column;
+                width: 100vw;
+            }
+
+            .r_info {
+                width: 90vw;
+                background-color: rgb(255, 106, 0);
+            }
+
+            .col_search {
+                margin-right: 1vw;
+                margin-top: 0;
+                margin-bottom: 2vh;
+            }
+
+
+            .r_table {
+                background-color: aqua;
+                width: 90vw;
+                margin-top: 2vh;
+            }
+
+            .r_table table {
+                border: 2px solid black;
+                border-collapse: collapse;
+                width: 90%;
+
+            }
+
+            .r_table th {
+                width: 70%;
+            }
+
+            .r_table td {
+                width: 35%;
+
+            }
+
+            .r_foodimg {
+                background-color: cadetblue;
+                width: 70vw;
+                height: auto;
+                margin-top: 2vh;
+                margin-bottom: 2vh;
+            }
+
+            #r_ser_againid {
+                width: 50vw;
+                height: 5vh;
+                margin-top: 5vh;
+                margin-bottom: 10vh;
+            }
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+    <div class="head">
+        <img src="images/platematelogo.png" alt="platemate">
+        <div class="toggle" onclick="toggle()">&#9776;</div>
+        <div class="tog">
+
+            <div class="navi">
+                <div class="nav-item">Home</div>
+                <div class="nav-item">Gallery</div>
+                <div class="nav-item">About Us</div>
+                <div class="nav-item">Contact Us</div>
+                <div class="nav-item">Login</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="result">
+
+        <!-- <div class="r_searchbar" id="r_searchbarid">
+
+            <p id="r_searchlabel">Enter the food name:</p>
+            <div class="col_search">
+                <input type="text" id="r_searchboxid">
+                <a href=""><button id="r_searchfood">Search</button></a>
+            </div>
+        </div> -->
+
+        <div class="r_foodname">
+            <h1 id="r_fnameid"></h1>
+        </div>
+
+        <div class="r_content">
+
+            <div class="r_info">
+                <p>Impact:</p> val1<br>
+                <p>Relief Tip:</p> val2<br>
+                <p>Serving size</p> val3 <br>
+                <p>Dominant Nutrient:</p> val4<br>
+                <p>Allergens:</p> val5 <br>
+                <p>Recommendation:</p> val6<br>
+            </div>
+
+            <div class="r_table">
+                <center>
+                    <table>
+                        <caption>Nutrient tables</caption>
+                        <tr>
+                            <th>Calories</th>
+                            <td>value1</td>
+                        </tr>
+                        <tr>
+                            <th>Carbs</th>
+                            <td>value2</td>
+                        </tr>
+                        <tr>
+                            <th>Sugar</th>
+                            <td>value3</td>
+                        </tr>
+                        <tr>
+                            <th>Protein</th>
+                            <td>value4</td>
+                        </tr>
+                        <tr>
+                            <th>Fat</th>
+                            <td>value5</td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+            <div class="r_foodimg">
+                <img src="images/abc.jpg" alt="food image" height="100%" width="100%">
+            </div>
+        </div>
+        <div class="ser_again">
+            <button id="r_ser_againid">Search food again?</button>
+        </div>
+    </div>
+    <script>
+
+        function toggle() {
+            const tog1 = document.querySelector(".tog");
+            if (tog1.style.display === "flex") {
+                tog1.style.display = "none";
+            }
+            else {
+                tog1.style.display = "flex";
+            }
+        }
+
+        const parameter = new URLSearchParams(window.location.search);
+        const name = parameter.get("foodname");
+        if (name) {
+            document.getElementById("r_fnameid").innerHTML = `FOOD : ${name}`;
+        }
+    </script>
+</body>
+
+</html>
