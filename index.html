@@ -114,6 +114,15 @@
                 color: rgb(0, 0, 0);
             }
 
+            .buttondiv {
+                flex-direction: column;
+                gap: 2vh;
+                width: clamp(80px, 40vw, 200px);
+                height: clamp(2.5vh, 5vh, 6vh);
+
+            }
+
+
         }
 
         .nav-item {
@@ -122,6 +131,17 @@
             border-radius: 10px;
             color: aliceblue;
             cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: aliceblue;
+        }
+
+        .nav-item a:visited,
+        .nav-item a:active,
+        .nav-item a:focus {
+            color: aliceblue;
         }
 
         .nav-item:hover {
@@ -138,8 +158,8 @@
             text-align: center;
             background-size: cover;
             background-position: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://assets.vogue.com/photos/63d169f727f1d528635b4287/master/w_1920,c_limit/GettyImages-1292563627.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('images/mainpg_bg.jpg');
             height: 100vh;
             width: 100vw;
         }
@@ -147,20 +167,22 @@
         .main {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            /* align-items: center; */
+            padding-left: 10vw;
+            text-align: left;
             padding-top: 15vh;
             line-height: 4vh;
         }
 
         .main h1 {
             padding-top: 15vh;
-            font-size: 7vw;
+            font-size: clamp(50px, 7vw, 500px);
             color: rgb(255, 255, 255);
             font-family: serif;
         }
 
         .main p {
-            font-size: 3.5vw;
+            font-size: clamp(25px, 3.5vw, 200px);
             color: rgb(255, 255, 255);
             font-family: serif;
             margin-top: 0;
@@ -170,41 +192,139 @@
             display: flex;
             width: clamp(250px, 50vw, 600px);
             height: auto;
-            justify-content: space-between;
+            justify-content: space-around;
         }
 
         .main button {
             background-color: crimson;
-            height: 7vh;
+            height: 6vh;
             width: clamp(100px, 20vw, 250px);
             font-family: 'Lucida Sans', sans-serif;
-            border-radius: 2vw;
+            border-radius: 0.8vw;
             font-size: clamp(1rem, 2vw, 1.5rem);
             color: aliceblue;
             cursor: pointer;
         }
 
         .main button:hover {
-            box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
+            box-shadow: 0px 0px 10px 5px aliceblue;
+        }
+
+        #abtus_ref {
+            display: none;
+            margin-top: 10vh;
+        }
+
+        #abtus {
+            display: flex;
+            height: 60vh;
+            width: 100vw;
+            background-color: rgb(0, 0, 0);
+            color: aliceblue;
+            font-family: serif;
+            scroll-margin-top: 18vh;
+
+        }
+
+        @media (max-width:620px) {
+            .abtus {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        #abtus_para {
+            width: 49vw;
+            height: 60vh;
+            margin: 1vh 4vw 4vh;
+            text-align: justify;
+        }
+
+        #abtus_para h1 {
+            font-size: clamp(1px, 2.3vw, 200px);
+        }
+
+        #abtus_para h3 {
+            font-size: clamp(1px, 1.3vw, 200px);
+        }
+
+        #abtus_para p {
+            font-size: clamp(1px, 1.1vw, 200px);
+        }
+
+
+
+        @keyframes abtsimg {
+            0% {
+                background-image: url("images/abtus_img1.jpg");
+            }
+
+            25% {
+                background-image: url("images/abtus_img3.jpg");
+
+            }
+
+            50% {
+                background-image: url("images/abtus_img2.jpg");
+
+            }
+
+            75% {
+                background-image: url("images/mainpg_bg.jpg");
+
+            }
+
+            100% {
+                background-image: url("images/abtus_img1.jpg");
+
+            }
+        }
+
+        #abtus_img1 {
+            width: 40vw;
+            height: 50vh;
+            margin-top: 5vh;
+            margin-left: 3vw;
+            background-image: url("images/abtus_img3.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            animation-name: abtsimg;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+            /* transition: 1s ease-in-out; */
+
+        }
+
+        #abtus_img {
+            width: 50vw;
+            height: 56vh;
+            margin-top: 2vh;
+            margin-left: 3vw;
+            background-color: black;
+
+
         }
 
         .space {
             height: 14vh;
             width: 100vw;
-            background-color: rgb(12, 7, 8);
+            background-color: rgb(0, 0, 0);
         }
 
         .searching {
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
             text-align: center;
             width: 100vw;
-            height: 86vh;
+            height: 100vh;
+            padding-left: 15vw;
             background-size: cover;
             background-position: center;
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('https://swagath.in/wp-content/uploads/2025/01/Authentic-South-Indian-Dishes-You-Cant-Miss-At-Swagath.jpg');
+                url("images/searchpg1.jpg");
         }
 
         .searching1 {
@@ -219,8 +339,7 @@
             background-blend-mode: overlay;
             background-size: cover;
             background-position: center;
-            background-image: url('https://swagath.in/wp-content/uploads/2025/01/Authentic-South-Indian-Dishes-You-Cant-Miss-At-Swagath.jpg'),
-                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+            
         }
 
         .searching p {
@@ -233,7 +352,7 @@
             width: 35vw;
             height: 6vh;
             font-size: 1.4rem;
-            border-radius: 3vh;
+            border-radius: 0.8vw;
             padding-left: 1vw;
         }
 
@@ -243,7 +362,7 @@
             width: clamp(100px, 20vw, 250px);
             max-width: 200px;
             font-family: 'Lucida Sans', sans-serif;
-            border-radius: 2vw;
+            border-radius: 0.8vw;
             font-size: clamp(1rem, 2vw, 1.5rem);
             color: aliceblue;
             cursor: pointer;
@@ -268,15 +387,15 @@
 
         .bmi {
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
-            text-align: center;
+            /* text-align: center; */
             width: 100vw;
             height: 86vh;
             background-size: cover;
             background-position: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('https://petsci.co.uk/wp-content/uploads/2012/01/weight-watching1.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+                url('images/mbmibg.jpg');
         }
 
         #htboxid {
@@ -305,14 +424,13 @@
             background-blend-mode: overlay;
             background-size: cover;
             background-position: center;
-            background-image: url('https://petsci.co.uk/wp-content/uploads/2012/01/weight-watching1.jpg'),
-                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+            /* background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); */
             padding: 2vh;
         }
 
         .bmi1 p {
             font-size: clamp(1.3rem, 2.8vw, 4.5rem);
-            color: aliceblue;
+            color: rgb(0, 0, 0);
             line-height: 2.5vh;
         }
 
@@ -321,7 +439,7 @@
             max-width: 300px;
             height: 6vh;
             font-size: 1.2rem;
-            border-radius: 3vh;
+            border-radius: 0.8vw;
             margin-bottom: 2vh;
             text-align: center;
         }
@@ -332,7 +450,7 @@
             width: clamp(100px, 20vw, 250px);
             max-width: 200px;
             font-family: 'Lucida Sans', sans-serif;
-            border-radius: 2vw;
+            border-radius: 0.8vw;
             font-size: clamp(1rem, 2vw, 1.5rem);
             color: aliceblue;
             cursor: pointer;
@@ -342,6 +460,14 @@
         #calbmi:hover {
             box-shadow: 0px 0px 10px 5px rgb(84, 77, 77);
         }
+
+        .footer1 {
+            height: 50vh;
+            width: 100vw;
+            background-color: gray;
+            font-size: xx-large;
+        }
+
     </style>
 </head>
 
@@ -366,29 +492,56 @@
             <div class="tog">
 
                 <div class="navi">
-                    <div class="nav-item">Home</div>
+                    <a href="#m1">
+                        <div class="nav-item">Home</div>
+                    </a>
                     <div class="nav-item">Gallery</div>
-                    <div class="nav-item">About Us</div>
+                    <a href="#abtus">
+                        <div class="nav-item">About Us</div>
+                    </a>
+                    <a href="#foot">
                     <div class="nav-item">Contact Us</div>
+                    </a>
                     <div class="nav-item">Login</div>
                 </div>
             </div>
         </div>
 
-        <div class="main">
+        <div class="main" id="m1">
             <h1>PLATEMATE</h1>
             <p>Your Partner in Healthy Eating</p>
             <div class="buttondiv">
-                <a href="#a1"><button id="searchbutton1">search</button></a>
+                <a href="#s1"><button id="searchbutton1">search</button></a>
                 <a href="#a2"><button id="bmibutton1">calculate BMI</button></a>
             </div>
         </div>
+        <p id="abtus_ref">About us reference</p>
+    </div>
+    <!-- <div class="space" id="a1"></div> -->
+    <div id="abtus">
+        <div id="abtus_img">
+            <div id="abtus_img1"></div>
+        </div>
+        <div id="abtus_para">
+            <h1>ABOUT US</h1>
+            <h3>Welcome to PlateMate – your ultimate nutrition companion!</h3>
+            <p>At PlateMate, we believe that understanding what you eat is the first step toward a healthier lifestyle.
+                Our platform helps you find macronutrients, essential nutrients, and detailed food insights based on the
+                foods you choose. Whether you're tracking calories, carbs, protein, fat, or sugar, PlateMate provides
+                the data you need to make informed dietary decisions.</p>
+            <p>But we don’t stop there! Our built-in BMI calculator helps you assess your body mass index, while our
+                personalized nutrition recommendations guide you in meeting your daily nutritional needs. With
+                PlateMate, you can discover exactly how much energy your body requires to stay fit and healthy.</p>
+            <p>Whether you're a fitness enthusiast, someone managing their diet, or just curious about what goes into
+                your meals, PlateMate is here to help!</p>
+
+            <h3>Fuel your body the right way—PlateMate is here to guide you!</h3>
+        </div>
     </div>
 
-    <div class="space" id="a1"></div>
     <script>
         function searchresult() {
-            var foodname = document.getElementById("searchboxid").value; 
+            var foodname = document.getElementById("searchboxid").value;
 
             if (foodname) {
                 window.location.href = `resultfoods.html?foodname=${encodeURIComponent(foodname)}`;
@@ -398,7 +551,7 @@
         }
 
     </script>
-    <div class="searching">
+    <div class="searching" id="s1">
         <div class="searching1">
             <label for="ser">
                 <p>Type the food name:</p>
@@ -428,10 +581,34 @@
             <input type="number" id="htboxid" placeholder="Height in cm">
             <input type="number" id="wtboxid" placeholder="Weight in kgs">
 
-            <a href=""><button id="calbmi">Calculate BMI</button></a>
+            <button id="calbmi" onclick="send()">Calculate BMI</button>
+            <script>
+                function send() {
+                    var he = document.getElementById("htboxid").value;
+                    var we = document.getElementById("wtboxid").value;
+                    if (he > 0 && we > 0) {
+                        window.location.href = `bmi.html?he=${he}&we=${we}`;
+                    } else {
+                        alert("Please enter valid height and weight");
+                    }
+                }
+            </script>
         </div>
     </div>
-    <div class="space"></div>
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="footer1" id="foot">
+        FOOTER
+    </div>
 </body>
 
 </html>
