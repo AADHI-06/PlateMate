@@ -28,7 +28,6 @@
             padding: 2vh 4vw;
             height: 10vh;
             width: 100vw;
-            background-color: rgb(0, 0, 0);
         }
 
         .toggle {
@@ -38,8 +37,8 @@
         }
 
         .head img {
-            margin-top: 1vh;
-            height: 200%;
+            margin-top: 5vh;
+            height: 300%;
             order: 1;
         }
 
@@ -96,8 +95,8 @@
 
             .head img {
                 order: 2;
-                margin-top: 1vh;
-                height: 160%;
+                margin-top: 2vh;
+                height: 200%;
             }
 
             .toggle {
@@ -114,6 +113,15 @@
                 color: rgb(0, 0, 0);
             }
 
+            .buttondiv {
+                flex-direction: column;
+                gap: 2vh;
+                width: clamp(80px, 40vw, 200px);
+                height: clamp(2.5vh, 5vh, 6vh);
+
+            }
+
+
         }
 
         .nav-item {
@@ -122,6 +130,17 @@
             border-radius: 10px;
             color: aliceblue;
             cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: aliceblue;
+        }
+
+        .nav-item a:visited,
+        .nav-item a:active,
+        .nav-item a:focus {
+            color: aliceblue;
         }
 
         .nav-item:hover {
@@ -165,57 +184,9 @@
             flex-direction: column;
             /* text-align: center; */
             background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-            height: 95vh;
+            height: 100vh;
             width: 100vw;
-            margin-top: 5vh;
         }
-
-
-
-        /* .r_searchbar {
-            display: flex;
-            height: 20vh;
-            width: 100vw;
-            justify-content: center;
-            background-color: aquamarine;
-
-        }
-
-        #r_searchlabel {
-            font-size: clamp(1.2rem, 2.2vw, 2.8rem);
-            margin-right: 0.5vw;
-            margin-top: 4vh;
-
-        }
-
-        .col_search {
-            margin-right: 1vw;
-            margin-top: 4vh;
-        }
-
-        #r_searchboxid {
-            width: 25vw;
-            height: 5vh;
-            font-size: 1rem;
-            border-radius: 1vw;
-        }
-
-        #r_searchfood {
-            background-color: crimson;
-            height: 5vh;
-            width: clamp(60px, 15vw, 150px);
-            max-width: 150px;
-            font-family: 'Lucida Sans', sans-serif;
-            border-radius: 1vw;
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            color: aliceblue;
-            cursor: pointer;
-        }
-
-
-        #r_searchfood:hover {
-            box-shadow: 0px 0px 5px 3px rgb(84, 77, 77);
-        } */
 
         .r_content {
             display: flex;
@@ -225,7 +196,7 @@
             background-position: center;
             padding-left: 2vw;
             padding-right: 2vw;
-            background-color: black;
+            background-color: aliceblue;
         }
 
         #r_fnameid {
@@ -233,19 +204,19 @@
             text-align: center;
             background-color: aliceblue;
             color: black;
-            margin-top: 10vh;
+            margin-top: 15vh;
             padding-top: 2vh;
             padding-bottom: 2vh;
         }
 
         .r_foodimg {
-            background-color: cadetblue;
+            /* background-color: cadetblue; */
             width: 15vw;
             height: auto;
         }
 
         .r_info {
-            background-color: burlywood;
+            /* background-color: burlywood; */
             width: 50vw;
             line-height: 4vh;
             font-size: clamp(1rem, 1.2vw, 3rem);
@@ -259,7 +230,7 @@
         }
 
         .r_table {
-            background-color: aqua;
+            /* background-color: aqua; */
             width: 30vw;
         }
 
@@ -302,21 +273,13 @@
 
         @media(max-width: 1080px) {
 
+            #r_fnameid {
+                margin-top: 10vh;
+            }
+
             .result {
                 margin-top: 0;
             }
-
-            /* .r_searchbar {
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-            }
-
-            #r_searchlabel {
-                font-size: clamp(1.6rem, 3vw, 3rem);
-                margin-top: 0;
-            } */
 
             .r_content {
                 flex-direction: column;
@@ -325,7 +288,6 @@
 
             .r_info {
                 width: 90vw;
-                background-color: rgb(255, 106, 0);
             }
 
             .col_search {
@@ -336,7 +298,6 @@
 
 
             .r_table {
-                background-color: aqua;
                 width: 90vw;
                 margin-top: 2vh;
             }
@@ -358,7 +319,6 @@
             }
 
             .r_foodimg {
-                background-color: cadetblue;
                 width: 70vw;
                 height: auto;
                 margin-top: 2vh;
@@ -368,7 +328,7 @@
             #r_ser_againid {
                 width: 50vw;
                 height: 5vh;
-                margin-top: 5vh;
+                margin-top: 2vh;
                 margin-bottom: 10vh;
             }
         }
@@ -404,25 +364,22 @@
         <div class="tog">
 
             <div class="navi">
-                <div class="nav-item">Home</div>
+                <a href="index.html">
+                    <div class="nav-item">Home</div>
+                </a>
                 <div class="nav-item">Gallery</div>
-                <div class="nav-item">About Us</div>
-                <div class="nav-item">Contact Us</div>
+                <a href="index.html">
+                    <div class="nav-item">About Us</div>
+                </a>
+                <a href="index.html">
+                    <div class="nav-item">Contact Us</div>
+                </a>
                 <div class="nav-item">Login</div>
             </div>
         </div>
     </div>
 
     <div class="result">
-
-        <!-- <div class="r_searchbar" id="r_searchbarid">
-
-            <p id="r_searchlabel">Enter the food name:</p>
-            <div class="col_search">
-                <input type="text" id="r_searchboxid">
-                <a href=""><button id="r_searchfood">Search</button></a>
-            </div>
-        </div> -->
 
         <div class="r_foodname">
             <h1 id="r_fnameid"></h1>
@@ -471,7 +428,7 @@
             </div>
         </div>
         <div class="ser_again">
-            <button id="r_ser_againid">Search food again?</button>
+            <a href="index.html"><button id="r_ser_againid">Search food again?</button></a>
         </div>
     </div>
     <script>
