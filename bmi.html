@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .head {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2vh 4vw;
+            height: 10vh;
+            width: 100vw;
+        }
+
+        .toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .head img {
+            margin-top: 5vh;
+            height: 300%;
+            order: 1;
+        }
+
+        .tog {
+            display: flex;
+            margin-top: 0;
+            padding-top: 5vh;
+            order: 2;
+        }
+
+        .navi {
+            display: flex;
+            gap: 4vw;
+            margin-right: 1vw;
+
+
+        }
+
+        @media (max-width: 620px) {
+
+            .head {
+                display: flex;
+            }
+
+
+            .tog {
+                display: none;
+                /* Initially hidden */
+                flex-direction: column;
+                align-items: center;
+                width: 65vw;
+                height: 100vh;
+                background-color: crimson;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 10;
+                opacity: 0.9;
+            }
+
+
+
+
+
+
+            .navi {
+                flex-direction: column;
+                flex-wrap: wrap;
+                padding-top: 5vh;
+                gap: 4vh;
+                order: 2;
+
+            }
+
+            .head img {
+                order: 2;
+                margin-top: 2vh;
+                height: 200%;
+            }
+
+            .toggle {
+                display: block;
+                order: 2;
+                z-index: 100;
+                color: white;
+                margin-top: 0;
+                margin-right: 2vw;
+
+            }
+
+            .toggle:hover {
+                color: rgb(0, 0, 0);
+            }
+
+            .buttondiv {
+                flex-direction: column;
+                gap: 2vh;
+                width: clamp(80px, 40vw, 200px);
+                height: clamp(2.5vh, 5vh, 6vh);
+
+            }
+
+
+        }
+
+        .nav-item {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            padding-bottom: 1vh;
+            border-radius: 10px;
+            color: aliceblue;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: aliceblue;
+        }
+
+        .nav-item a:visited,
+        .nav-item a:active,
+        .nav-item a:focus {
+            color: aliceblue;
+        }
+
+        .nav-item:hover {
+            color: crimson;
+            font-weight: bolder;
+            text-decoration: underline;
+        }
+
+
+
+
+
+
+
+
+
+        .main {
+            background-color: gray;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('images/bmibg.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            padding: 0%;
+            margin: 0;
+            height: 100vh;
+            padding-top: 15vh;
+        }
+
+        .container {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            color: white;
+            padding-left: 5vw;
+            padding-right: 5vw;
+            border-radius: 10px;
+            width: 70vw;
+            height: 58vh;
+            margin: auto;
+        }
+
+        button {
+            background: crimson;
+            color: white;
+
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            width: 40%;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+        .gauge {
+            width: 100%;
+            max-width: 500px;
+            height: 50px;
+            position: relative;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .gauge:hover~#needle {
+            animation-play-state: paused;
+        }
+
+        .gauge div {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            font-weight: bold;
+
+        }
+
+        .p {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), rgb(27, 247, 255);
+        }
+
+        .q {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), rgb(17, 255, 0);
+        }
+
+        .r {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), rgb(255, 151, 14);
+        }
+
+        .s {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), orangered;
+        }
+
+        .t {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), red;
+        }
+
+        .needle {
+            width: 0.2vw;
+            height: 4vh;
+            background: rgb(255, 255, 255);
+            position: relative;
+            transition: left 0.5s ease-out;
+            margin-left: 20.5vw;
+            animation-name: bmimove;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+
+        @keyframes bmimove {
+            0% {
+                left: 0vw;
+            }
+
+            100% {
+                left: 29vw;
+            }
+
+        }
+
+        .measure {
+            margin-bottom: 2vh;
+        }
+
+        #age {
+            margin-top: 2vh;
+            height: 4vh;
+            font-size: 1.2rem;
+            width: 20vw;
+            border-radius: 0.6rem;
+            box-shadow: 0.5rem 0.5rem 2rem gray;
+        }
+
+        #male {
+            margin-top: 3vh;
+        }
+
+        #bmrr {
+            margin-top: 2vh;
+            font-size: 1.4rem;
+            color: rgb(69, 193, 251);
+        }
+
+        .bmrdiv {
+            display: none;
+            margin-top: -2vw;
+        }
+
+        #calBMR {
+            margin-left: 0vw;
+            height: 5vh;
+            width: 20vw;
+            text-align: center;
+            padding-bottom: 2.3rem;
+        }
+
+        .bmidisp {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="head">
+            <img src="images/platematelogo.png" alt="platemate">
+            <div class="toggle" onclick="toggle()">&#9776;</div>
+            <div class="tog">
+
+                <div class="navi">
+                    <a href="index.html">
+                        <div class="nav-item">Home</div>
+                    </a>
+                    <div class="nav-item">Gallery</div>
+                    <a href="index.html">
+                        <div class="nav-item">About Us</div>
+                    </a>
+                    <a href="index.html">
+                        <div class="nav-item">Contact Us</div>
+                    </a>
+                    <div class="nav-item">Login</div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container" id="container">
+            <div class="measure">
+                <h2 style="font-size: 3rem;">BMI CALCULATOR</h2>
+                <div class="gauge">
+                    <div class="p">UW</div>
+                    <div class="q">normal</div>
+                    <div class="r">over weight</div>
+                    <div class="s">obese</div>
+                    <div class="t">eo</div>
+                </div>
+
+                <div class="needle" id="needle"></div>
+                <div class="bmidisp" id="bmidisp"></div>
+
+            </div><br>
+            <button id="calBMR" onclick="divdisp()">Calculate Calorie Intake</button>
+            <br><br>
+            <center>
+                <div class="bmrdiv" id="bmrdiv">
+                    <label for="age" style="font-size: 1.9rem;">Enter you age: </label>
+                    <br>
+                    <input type="text" id="age">
+                    <br><br>
+                    <br>
+                    <label for="gender" style="font-size: 1.9rem;">Choose the gender :</label><br>
+                    <input type="radio" name="gen" id="male" value="male">
+                    <label for="male" style="font-size: 1.5rem;margin-right: 3vw;">Male</label>
+                    <input type="radio" name="gen" id="female" value="female">
+                    <label for="female" style="font-size: 1.5rem;">Female</label>
+                    <div id="bmrr"></div>
+                    <br>
+                    <button onclick="bmr()">Calculate</button>
+                </div>
+            </center>
+
+        </div>
+    </div>
+    <script>
+        function divdisp() {
+            document.getElementById("container").style.height = `${80}vh`;
+            document.getElementById("bmrdiv").style.display = "block";
+            document.getElementById("calBMR").style.display = "none";
+        }
+        const hwvalue = new URLSearchParams(window.location.search);
+        const height = hwvalue.get("he");
+        const weight = hwvalue.get("we");
+
+        //let weight = parseFloat(document.getElementById('htboxid').value);
+        //let height = parseFloat(document.getElementById('wtboxid').value);
+        let needle = document.getElementById('needle');
+
+        if (weight > 0 && height > 0) {
+            let bmi = weight / (height * height) * 10000;
+            var bmilevel;
+
+
+            var position;
+            if (bmi <= 18.5) {
+                position = 17;
+                bmilevel = "Your are under weight";
+                document.getElementById('bmidisp').style.color = "blue";
+            }
+            else if (bmi > 18.5 & bmi <= 24.9) {
+                position = 20;
+                bmilevel = "Your are in normal weight";
+                document.getElementById('bmidisp').style.color = "palegreen";
+
+            }
+            else if (bmi > 24.9 & bmi < 29.9) {
+                position = 20;
+                bmilevel = "Your are over weight";
+                document.getElementById('bmidisp').style.color = "rgb(255, 151, 14)";
+
+            }
+            else if (bmi >= 30 & bmi < 34.9) {
+                position = 20;
+                bmilevel = "Your are obese weight";
+                document.getElementById('bmidisp').style.color = "orange";
+
+            }
+            else {
+                bmilevel = "Your are Extremely obese";
+                document.getElementById('bmidisp').style.color = "red";
+            }
+            document.getElementById('bmidisp').innerText = "Your BMI: " + bmi.toFixed(2) + " [" + bmilevel + "]";
+
+            needle.style.marginLeft = `${position} vw`;
+        } else {
+            document.getElementById('bmidisp').innerText = "Please enter valid inputs.";
+        }
+
+        function bmr() {
+            var age = document.getElementById("age").value;
+            var gender = document.querySelector('input[name=gen]:checked');
+            var bmr;
+            if (!age || !gender) {
+                document.getElementById("bmrr").innerHTML = "Please give the input...";
+                document.getElementById("bmrr").style.color = "red";
+            }
+
+            if (age < 0) {
+                document.getElementById("bmrr").innerHTML = "Invalid Age";
+                document.getElementById("bmrr").style.color = "red";
+            }
+
+            if (gender.value === "male" & age > 0) {
+                bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+                document.getElementById("bmrr").innerHTML = "Your BMR value : " + bmr;
+            }
+            if (gender.value === "female" & age > 0) {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 161;
+                document.getElementById("bmrr").innerHTML = "Your BMR value : " + bmr;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
