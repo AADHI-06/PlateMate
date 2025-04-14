@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with CAPTCHA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url('./images/loginbg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        
+        .login-container {
+            background-color: rgba(255, 255, 255,0.5);
+            padding: 20px;
+            height: 450px;
+            
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+            margin-left: 15vw;
+   
+        }
+        
+        .logo img{
+            height: 550px;
+            width: 550px;
+            margin-top: 100px;
+
+        }
+
+        .logo{
+            height: 100%;
+            margin-left: -120px;
+        }
+
+
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border: 1px solid rgb(0, 0, 0);
+            box-shadow: 0 0 3px rgba(76, 175, 80, 0.3);
+        }
+        
+        .captcha-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .captcha-code {
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            background-color: #eee;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: crimson;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #submit{
+            margin-top: 20px;
+        }
+        
+        button:hover {
+            background-color: crimson;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .anim{
+            height: 150px;
+            width: 5px;
+            margin-top: -890px;
+            margin-left: 140px;
+            background-color: crimson;
+            animation-name: loginmove;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes loginmove{
+            0%{
+                margin-top: -890px;
+            }
+            100%{
+                margin-top: 1000px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="./images/platematelogo.png" alt="logo">
+    </div>
+    <br><br>
+    <div class="anim"></div>
+    <br>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" action="#" method="post">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label>CAPTCHA Verification</label>
+                <div class="captcha-container">
+                    <div class="captcha-code" id="captchaText">A7B9C</div>
+                    <button type="button" onclick="generateCaptcha()">↻ Refresh</button>
+                </div>
+                <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required>
+            </div>
+            <a href="index.html"><button id="submit" onclick="rederict()">Login</button></a>
+            <div id="errorMessage" class="error"></div>
+        </form>
+    </div>
+
+    <script>
+        function generateCaptcha() {
+            const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let captcha = "";
+            for(let i = 0; i < 5; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById("captchaText").textContent = captcha;
+        }
+        
+        window.onload = generateCaptcha;
+        
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            const captchaText = document.getElementById("captchaText").textContent;
+            const captchaInput = document.getElementById("captchaInput").value;
+            const errorElement = document.getElementById("errorMessage");
+            
+            if(captchaInput !== captchaText) {
+                errorElement.textContent = "CAPTCHA verification failed!";
+                generateCaptcha();
+                document.getElementById("captchaInput").value = "";
+                event.preventDefault();
+            } else {
+                errorElement.textContent = "";
+                event.preventDefault();
+            }
+        });
+
+        function rederict(){
+            window.location.href="index.html"
+        }
+    </script>
+</body>
+</html>
