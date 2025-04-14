@@ -67,7 +67,6 @@
 
             .tog {
                 display: none;
-                /* Initially hidden */
                 flex-direction: column;
                 align-items: center;
                 width: 65vw;
@@ -79,11 +78,6 @@
                 z-index: 10;
                 opacity: 0.9;
             }
-
-
-
-
-
 
             .navi {
                 flex-direction: column;
@@ -134,13 +128,10 @@
             text-decoration: none;
         }
 
-        a:visited {
-            color: aliceblue;
-        }
-
-        .nav-item a:visited,
-        .nav-item a:active,
-        .nav-item a:focus {
+        a:link,
+        a:visited,
+        a:active,
+        a:focus {
             color: aliceblue;
         }
 
@@ -153,8 +144,6 @@
         .first {
             display: flex;
             flex-direction: column;
-            /* align-items: center; */
-            /* justify-content: center; */
             text-align: center;
             background-size: cover;
             background-position: center;
@@ -167,7 +156,6 @@
         .main {
             display: flex;
             flex-direction: column;
-            /* align-items: center; */
             padding-left: 10vw;
             text-align: left;
             padding-top: 15vh;
@@ -226,51 +214,72 @@
 
         }
 
-        @media (max-width:620px) {
-            .abtus {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
         #abtus_para {
             width: 49vw;
             height: 60vh;
-            margin: 1vh 4vw 4vh;
+            margin: 1vh 4vw 2vh 4vh;
             text-align: justify;
         }
 
         #abtus_para h1 {
-            font-size: clamp(1px, 2.3vw, 200px);
+            font-size: clamp(23px, 4vw, 35px);
         }
 
         #abtus_para h3 {
-            font-size: clamp(1px, 1.3vw, 200px);
+            font-size: clamp(16px, 2vw, 25px);
         }
 
         #abtus_para p {
-            font-size: clamp(1px, 1.1vw, 200px);
+            font-size: clamp(14px, 1vw, 20px);
         }
-
-
 
         @keyframes abtsimg {
             0% {
                 background-image: url("images/abtus_img1.jpg");
             }
 
-            25% {
-                background-image: url("images/abtus_img3.jpg");
+            10% {
+                background-image: url("images/fooditems/chickentikka.jpg");
+
+            }
+
+            20% {
+                background-image: url("images/fooditems/curdrice.jpg");
+
+            }
+
+            30% {
+                background-image: url("images/fooditems/gulabjamun.jpg");
+
+            }
+
+            40% {
+                background-image: url("images/fooditems/masaladosa.jpg");
 
             }
 
             50% {
-                background-image: url("images/abtus_img2.jpg");
+                background-image: url("images/fooditems/vada.jpg");
 
             }
 
-            75% {
-                background-image: url("images/mainpg_bg.jpg");
+            60% {
+                background-image: url("images/fooditems/tandooriprawns.jpg");
+
+            }
+
+            70% {
+                background-image: url("images/fooditems/idli.jpg");
+
+            }
+
+            80% {
+                background-image: url("images/fooditems/mangoes.jpg");
+
+            }
+
+            90% {
+                background-image: url("images/fooditems/bananas.jpg");
 
             }
 
@@ -291,9 +300,9 @@
             background-size: cover;
 
             animation-name: abtsimg;
-            animation-duration: 20s;
+            animation-duration: 25s;
             animation-iteration-count: infinite;
-            /* transition: 1s ease-in-out; */
+            transition: 2s ease-in-out;
 
         }
 
@@ -305,6 +314,35 @@
             background-color: black;
 
 
+        }
+
+
+        @media (max-width:620px) {
+            #abtus {
+                display: flex;
+                flex-direction: column;
+                height: 85vh;
+
+                scroll-margin-top: 9vh;
+
+            }
+
+            #abtus_img1 {
+                width: 88vw;
+                height: 15vh;
+                margin: 2vh 4vw;
+            }
+
+            #abtus_img {
+                order: 2;
+            }
+
+            #abtus_para {
+                width: 92vw;
+                margin: 2vh 4vw;
+                height: 80vh;
+                order: 1;
+            }
         }
 
         .space {
@@ -339,7 +377,7 @@
             background-blend-mode: overlay;
             background-size: cover;
             background-position: center;
-            
+
         }
 
         .searching p {
@@ -380,10 +418,6 @@
 
 
 
-        /* #backtohome {
-            background-image: url();
-
-        } */
 
         .bmi {
             display: flex;
@@ -391,10 +425,10 @@
             align-items: center;
             /* text-align: center; */
             width: 100vw;
-            height: 86vh;
+            height: 100vh;
             background-size: cover;
             background-position: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('images/mbmibg.jpg');
         }
 
@@ -424,8 +458,9 @@
             background-blend-mode: overlay;
             background-size: cover;
             background-position: center;
-            /* background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); */
             padding: 2vh;
+            padding-left: 10vw;
+            padding-top: 0vh;
         }
 
         .bmi1 p {
@@ -462,25 +497,250 @@
         }
 
         .footer1 {
-            height: 50vh;
+            display: flex;
+            height: 45vh;
             width: 100vw;
-            background-color: gray;
-            font-size: xx-large;
+            background-color: black;
         }
 
+        .footer1 h1 {
+            font-size: clamp(24px, 3vw, 35px);
+        }
+
+        #fo_ph {
+            display: flex;
+        }
+
+        #fo_det {
+            display: flex;
+            justify-content: space-around;
+            height: 45vh;
+            width: 40vw;
+            background-color: black;
+            padding: 2vh 3vw 2vh;
+        }
+
+        #fo_det p {
+            cursor: pointer;
+        }
+
+
+
+
+
+        .fo_det1 {
+            color: aliceblue;
+            line-height: 3vh;
+            order: 1;
+        }
+
+        #fo_det1a {
+            order: 1;
+        }
+
+        #fo_det1b {
+            order: 2;
+        }
+
+        #fo_addr {
+            line-height: 2vh;
+            margin-top: 5vh;
+        }
+
+
+
+
+        #fo_logo {
+            display: flex;
+            height: 45vh;
+            width: 20vw;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            order: 2;
+        }
+
+        #fo_logo img {
+            height: 30vh;
+            width: 15vw;
+
+        }
+
+        #fo_form {
+            height: 45vh;
+            width: 40vw;
+            padding: 2vh 3vw 2vh;
+            background-color: black;
+            color: aliceblue;
+            order: 3;
+        }
+
+
+        #fo_name_des input {
+            width: 25vw;
+            height: 3.5vh;
+            margin-bottom: 0.5vh;
+        }
+
+        #fo_sug {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #fo_sug textarea {
+            width: 25vw;
+            height: 18vh;
+            font-family: sans-serif;
+        }
+
+        #fo_sug input {
+            margin-top: 0.5vh;
+            background-color: crimson;
+            color: aliceblue;
+            height: 4vh;
+            width: clamp(100px, 25vw, 900px);
+            font-family: 'Lucida Sans', sans-serif;
+            font-size: clamp(0.7rem, 1.7vw, 1.2rem);
+        }
+
+        #mes {
+            color: green;
+        }
+
+        @media(max-width:1000px) {
+            #fo_logo {
+                display: none;
+            }
+
+            #fo_form {
+                height: 45vh;
+                width: 50vw;
+            }
+
+            #fo_det {
+                height: 45vh;
+                width: 50vw;
+            }
+
+        }
+
+        @media(max-width:620px) {
+            .footer1 {
+                flex-direction: column;
+                height: 67vh;
+                width: 100vw;
+            }
+
+            #fo_ph {
+                display: flex;
+                justify-content: space-around;
+                background-color: black;
+
+            }
+
+            #fo_det {
+                order: 3;
+                height: 27vh;
+                width: 100vw;
+                background-color: black;
+            }
+
+            #fo_form {
+                height: 40vh;
+                width: 100vw;
+                order: 1;
+            }
+
+            #fo_name_des input {
+                width: 55vw;
+
+            }
+
+            #fo_sug textarea {
+                width: 55vw;
+            }
+
+            #fo_sug input {
+                width: 55vw;
+
+            }
+
+
+            #fo_logo {
+                height: 15vh;
+                width: 30vw;
+                order: 2;
+                display: block;
+            }
+
+            #fo_logo img {
+                height: 20vh;
+                margin-top: 15vh;
+            }
+
+            .fo_det1 {
+
+                line-height: 1.5vh;
+            }
+
+            #fo_addr {
+                line-height: 1vh;
+                margin-top: 4vh;
+            }
+
+        }
+
+        #footer2 {
+            display: flex;
+        }
+
+        #f2_tc_pp {
+            display: flex;
+            align-items: center;
+            width: 40vw;
+            padding-left: 3vw;
+            padding-right: 3vw;
+            background-color: black;
+            color: aliceblue;
+            justify-content: space-between;
+        }
+
+        #f2_tc_pp p:hover {
+            color: crimson;
+            cursor: pointer;
+        }
+
+        #f2_cpy {
+            align-items: center;
+            width: 60vw;
+            background-color: black;
+            color: aliceblue;
+            text-align: right;
+            padding-right: 3vw;
+        }
     </style>
 </head>
 
 <body>
+    <div id="root"></div>
+
     <script>
 
+
         function toggle() {
+
             const tog1 = document.querySelector(".tog");
             if (tog1.style.display === "flex") {
-                tog1.style.display = "none";
+                if (window.innerWidth <= 621) {
+                    tog1.style.display = "none";
+                }
+
             }
             else {
-                tog1.style.display = "flex";
+                if (window.innerWidth <= 621) {
+                    tog1.style.display = "flex";
+                }
+
             }
         }
 
@@ -492,18 +752,23 @@
             <div class="tog">
 
                 <div class="navi">
-                    <a href="#m1">
+                    <a href="#m1" onclick="toggle()">
                         <div class="nav-item">Home</div>
                     </a>
-                    <div class="nav-item">Gallery</div>
-                    <a href="#abtus">
+                    <a href="imggal.html" onclick="toggle()">
+                        <div class="nav-item">Gallery</div>
+                    </a>
+                    <a href="#abtus" onclick="toggle()">
                         <div class="nav-item">About Us</div>
                     </a>
-                    <a href="#foot">
-                    <div class="nav-item">Contact Us</div>
+                    <a href="#foot" onclick="toggle()">
+                        <div class="nav-item">Contact Us</div>
                     </a>
-                    <div class="nav-item">Login</div>
+                    <a href="login.html" onclick="toggle()">
+                        <div class="nav-item">Login</div>
+                    </a>
                 </div>
+
             </div>
         </div>
 
@@ -549,8 +814,8 @@
                 alert("Enter the food name");
             }
         }
-
     </script>
+
     <div class="searching" id="s1">
         <div class="searching1">
             <label for="ser">
@@ -570,8 +835,8 @@
 
 
 
-    <div class="space" id="a2"></div>
-    <div class="bmi">
+    <!-- <div class="space" id="a2"></div> -->
+    <div class="bmi" id="a2">
         <div class="bmi1">
             <label for="hgt">
                 <p>Enter your Height and Weight : </p>
@@ -605,9 +870,86 @@
 
 
 
-    
+
     <div class="footer1" id="foot">
-        FOOTER
+        <div id="fo_ph">
+            <div id="fo_form">
+                <h1>Any Suggestions</h1>
+                <div id="fo_name_des">
+                    <input type="text" placeholder="Enter Name" id="name"><br>
+                    <input type="text" placeholder="Enter Subject" id="sub">
+                </div>
+                <div id="fo_sug">
+                    <textarea placeholder="Your Suggestions" id="sugg"></textarea>
+                    <input type="submit" id="submit_suggestion" onclick="validate()">
+                    <div id="mes"></div>
+                </div>
+            </div>
+            <script>
+                function validate() {
+                    var na = document.getElementById("name");
+                    var sub = document.getElementById("sub");
+                    var sg = document.getElementById("sugg");
+                    var es = document.getElementById("mes");
+                    es.innerHTML = "";
+                    var a = 0;
+
+                    const suc = document.querySelector(".es");
+
+                    if (na.value === "" || sub === "" || sg === "") {
+                        a = 1;
+                        es.style.color = "red";
+                    }
+                    else {
+                        a = 0;
+                        es.style.color = "green";
+                    }
+                    if (a === 0) {
+                        es.innerHTML = "Successfully Submitted...";
+                    }
+                    else {
+                        es.innerHTML = "Fill all the boxes...";
+                    }
+                }
+            </script>
+            <div id="fo_logo">
+                <img src="images/platematelogo.png" alt="platemate">
+            </div>
+        </div>
+        <div id="fo_det">
+            <div class="fo_det1" id="fo_det1a">
+                <h1>Connect us at</h1>
+                <p>Instagram</p>
+                <p>Facebook</p>
+                <p>X</p>
+                <p>LinkedIn</p>
+            </div>
+            <div class="fo_det1" id="fo_det1b">
+                <h1>Contact details</h1>
+                <p>+919876543210</p>
+                <p>platemate@gmail.com</p>
+                <div id="fo_addr">
+                    <p>VIT University,</p>
+                    <p>Vellore,</p>
+                    <p>Tamil Nadu,</p>
+                    <p>India - 632014</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <div id="footer2">
+        <div id="f2_tc_pp">
+            <p>Privacy Policy</p>
+            <p>Terms and Conditions</p>
+        </div>
+        <div id="f2_cpy">
+            <p>&copy; PlateMate</p>
+        </div>
     </div>
 </body>
 
