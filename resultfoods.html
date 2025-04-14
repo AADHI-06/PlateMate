@@ -11,11 +11,11 @@
             scroll-behavior: smooth;
         }
 
-
         body {
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            background-image: url("images/foodresbg.jpg");
         }
 
         .head {
@@ -53,20 +53,15 @@
             display: flex;
             gap: 4vw;
             margin-right: 1vw;
-
-
         }
 
         @media (max-width: 620px) {
-
             .head {
                 display: flex;
             }
 
-
             .tog {
                 display: none;
-                /* Initially hidden */
                 flex-direction: column;
                 align-items: center;
                 width: 65vw;
@@ -79,18 +74,12 @@
                 opacity: 0.9;
             }
 
-
-
-
-
-
             .navi {
                 flex-direction: column;
                 flex-wrap: wrap;
                 padding-top: 5vh;
                 gap: 4vh;
                 order: 2;
-
             }
 
             .head img {
@@ -103,10 +92,9 @@
                 display: block;
                 order: 2;
                 z-index: 100;
-                color: white;
+                color: aliceblue;
                 margin-top: 0;
                 margin-right: 2vw;
-
             }
 
             .toggle:hover {
@@ -118,10 +106,7 @@
                 gap: 2vh;
                 width: clamp(80px, 40vw, 200px);
                 height: clamp(2.5vh, 5vh, 6vh);
-
             }
-
-
         }
 
         .nav-item {
@@ -133,7 +118,7 @@
             text-decoration: none;
         }
 
-        a:visited {
+        a:link {
             color: aliceblue;
         }
 
@@ -149,40 +134,9 @@
             text-decoration: underline;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         .result {
             display: flex;
             flex-direction: column;
-            /* text-align: center; */
             background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
             height: 100vh;
             width: 100vw;
@@ -196,66 +150,116 @@
             background-position: center;
             padding-left: 2vw;
             padding-right: 2vw;
-            background-color: aliceblue;
+            background-color: black;
         }
 
         #r_fnameid {
             font-size: 3vw;
             text-align: center;
-            background-color: aliceblue;
-            color: black;
+            color: aliceblue;
             margin-top: 15vh;
             padding-top: 2vh;
             padding-bottom: 2vh;
         }
 
         .r_foodimg {
-            /* background-color: cadetblue; */
             width: 15vw;
             height: auto;
         }
 
         .r_info {
-            /* background-color: burlywood; */
-            width: 50vw;
-            line-height: 4vh;
-            font-size: clamp(1rem, 1.2vw, 3rem);
+            width: 45vw;
+            line-height: 2vh;
+            font-size: clamp(1rem, 1.5vw, 3rem);
             padding: 2vw;
+            color: aliceblue;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .r_info p {
             font-weight: bold;
-            display: inline;
-            font-size: clamp(1rem, 1.2vw, 3rem);
+            display: inline-block;
+            font-size: clamp(1rem, 1.2vw, 2rem);
+            padding: 0.5vw;
+            margin: 0.5vw 0;
+            color: aliceblue;
+            transition: 0.3s ease-in-out;
+        }
+
+        .r_info span {
+            font-weight: lighter;
+        }
+
+        .r_info p:hover {
+            color: crimson;
+            cursor: pointer;
         }
 
         .r_table {
-            /* background-color: aqua; */
             width: 30vw;
+            margin: 2vh auto;
+            text-align: center;
         }
 
         .r_table table {
-            border: 2px solid black;
+            width: 100%;
             border-collapse: collapse;
-            width: 85%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
+        table caption {
+            color: aliceblue;
+            font-size: 2rem;
         }
 
         .r_table th,
-        td {
+        .r_table td {
             border: 2px solid black;
-            border-collapse: collapse;
-            height: 4vh;
+            padding: 12px;
+            font-size: 1.1rem;
             text-align: center;
-            font-size: clamp(1rem, 1.2vw, 3.5rem);
         }
 
         .r_table th {
-            width: 65%;
+            background-color: crimson;
+            color: aliceblue;
+            font-weight: bold;
         }
 
-        .r_table td {
-            width: 35%;
+        .r_table tr:nth-child(even) {
+            background-color: aliceblue;
+        }
+
+        .r_table tr:nth-child(odd) {
+            background-color: aliceblue;
+        }
+
+        .r_table tr:hover {
+            background-color: crimson;
+            transition: 0.3s ease-in-out;
+        }
+
+        #qty {
+            width: 10vw;
+            text-align: center;
+        }
+
+        table button {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        table button:hover {
+            background-color: black;
+            color: aliceblue;
+            transform: scale(1.1);
         }
 
         .ser_again {
@@ -265,16 +269,20 @@
         #r_ser_againid {
             width: 30vw;
             height: 5vh;
-            margin-top: 25vh;
+            margin-top: 10vh;
+            background-color: crimson;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-
-
-
         @media(max-width: 1080px) {
-
             #r_fnameid {
+                font-size: 10vw;
                 margin-top: 10vh;
+                margin-bottom: 0;
+
             }
 
             .result {
@@ -284,6 +292,12 @@
             .r_content {
                 flex-direction: column;
                 width: 100vw;
+            }
+
+            .head img {
+                order: 2;
+                margin-top: 2vh;
+                height: 200%;
             }
 
             .r_info {
@@ -296,7 +310,6 @@
                 margin-bottom: 2vh;
             }
 
-
             .r_table {
                 width: 90vw;
                 margin-top: 2vh;
@@ -306,8 +319,17 @@
                 border: 2px solid black;
                 border-collapse: collapse;
                 width: 90%;
-
             }
+
+            table button {
+                width: 20vw;
+            }
+
+            table input {
+                height: 3vh;
+                background-color: white;
+            }
+
 
             .r_table th {
                 width: 70%;
@@ -315,7 +337,10 @@
 
             .r_table td {
                 width: 35%;
+            }
 
+            #qty {
+                width: 20vw;
             }
 
             .r_foodimg {
@@ -335,65 +360,44 @@
     </style>
 </head>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <body>
 
     <div class="head">
         <img src="images/platematelogo.png" alt="platemate">
         <div class="toggle" onclick="toggle()">&#9776;</div>
         <div class="tog">
-
             <div class="navi">
-                <a href="index.html">
+                <a href="index.html #m1" onclick="toggle()">
                     <div class="nav-item">Home</div>
                 </a>
-                <div class="nav-item">Gallery</div>
-                <a href="index.html">
+                <a href="imggal.html" onclick="toggle()">
+                    <div class="nav-item">Gallery</div>
+                </a>
+                <a href="index.html #abtus" onclick="toggle()">
                     <div class="nav-item">About Us</div>
                 </a>
-                <a href="index.html">
+                <a href="index.html #foot" onclick="toggle()">
                     <div class="nav-item">Contact Us</div>
                 </a>
-                <div class="nav-item">Login</div>
+                <a href="login.html" onclick="toggle()">
+                    <div class="nav-item">Login</div>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="result">
-
         <div class="r_foodname">
             <h1 id="r_fnameid"></h1>
         </div>
 
         <div class="r_content">
-
             <div class="r_info">
-                <p>Impact:</p> val1<br>
-                <p>Relief Tip:</p> val2<br>
-                <p>Serving size</p> val3 <br>
-                <p>Dominant Nutrient:</p> val4<br>
-                <p>Allergens:</p> val5 <br>
-                <p>Recommendation:</p> val6<br>
+                <p><strong>Impact:</strong> <span id="impact"></span></p><br><br>
+                <p><strong>Relief Tip:</strong> <span id="relief"></span></p><br><br>
+                <p><strong>Dominant Nutrient:</strong> <span id="nutrient"></span></p><br><br>
+                <p><strong>Allergens:</strong> <span id="allergens"></span></p><br><br>
+                <p><strong>Recommendation:</strong> <span id="recommendation"></span></p><br><br>
             </div>
 
             <div class="r_table">
@@ -401,38 +405,47 @@
                     <table>
                         <caption>Nutrient tables</caption>
                         <tr>
-                            <th>Calories</th>
-                            <td>value1</td>
+                            <th>Calories (kcal)</th>
+                            <td id="cal"></td>
                         </tr>
                         <tr>
-                            <th>Carbs</th>
-                            <td>value2</td>
+                            <th>Carbs (g)</th>
+                            <td id="carb"></td>
                         </tr>
                         <tr>
-                            <th>Sugar</th>
-                            <td>value3</td>
+                            <th>Sugar (g)</th>
+                            <td id="sug"></td>
                         </tr>
                         <tr>
-                            <th>Protein</th>
-                            <td>value4</td>
+                            <th>Protein (g)</th>
+                            <td id="pro"></td>
                         </tr>
                         <tr>
-                            <th>Fat</th>
-                            <td>value5</td>
+                            <th>Fat (g)</th>
+                            <td id="fat"></td>
+                        </tr>
+                        <tr>
+                            <th>Quantity (g)</th>
+                            <td>
+                                <button id="sub">-</button>
+                                <input id="qty" type="number" value="100" min="0">
+                                <button id="add">+</button>
+                            </td>
                         </tr>
                     </table>
                 </center>
             </div>
+
             <div class="r_foodimg">
-                <img src="images/abc.jpg" alt="food image" height="100%" width="100%">
+                <img id="foodImg" src="images/abc.jpg" alt="food image" height="100%" width="100%">
             </div>
         </div>
         <div class="ser_again">
-            <a href="index.html"><button id="r_ser_againid">Search food again?</button></a>
+            <a href="index.html #s1"><button id="r_ser_againid">Search food again?</button></a>
         </div>
     </div>
-    <script>
 
+    <script>
         function toggle() {
             const tog1 = document.querySelector(".tog");
             if (tog1.style.display === "flex") {
@@ -444,9 +457,1057 @@
         }
 
         const parameter = new URLSearchParams(window.location.search);
-        const name = parameter.get("foodname");
-        if (name) {
-            document.getElementById("r_fnameid").innerHTML = `FOOD : ${name}`;
+        const names = parameter.get("foodname").trim().toLowerCase();
+        const name = names.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+
+        document.getElementById("r_fnameid").innerHTML = `${name}`;
+
+        const foodData = {
+            "Apple": {
+                impact: "Rich in fiber and antioxidants, promotes heart health.",
+                relief: "Eat with the skin for maximum fiber benefits.",
+                nutrient: "Vitamin C, Fiber",
+                allergens: "Rare, but may cause oral allergy syndrome.",
+                recommendation: "Best eaten fresh; can be paired with peanut butter for protein boost.",
+                calories: 47.5,
+                carbs: 12.5,
+                sugar: 9.5,
+                protein: 0.25,
+                fat: 0.15,
+                img: "images/fooditems/apple.jpg"
+            },
+            "Banana": {
+                impact: "High in potassium, helps in muscle function and digestion.",
+                relief: "Eat when ripe for better digestion and energy boost.",
+                nutrient: "Potassium, Vitamin B6",
+                allergens: "Rare, but may trigger latex-fruit syndrome.",
+                recommendation: "Ideal pre-workout snack; pair with yogurt for a protein boost.",
+                calories: 88.98,
+                carbs: 22.88,
+                sugar: 11.86,
+                protein: 1.1,
+                fat: 0.25,
+                img: "images/fooditems/bananas.jpg"
+
+            },
+            "Mango": {
+                impact: "Rich in Vitamin A, boosts immunity and skin health.",
+                relief: "Best consumed in moderation due to natural sugars.",
+                nutrient: "Vitamin A, Vitamin C",
+                allergens: "Can cause allergic reactions in sensitive individuals.",
+                recommendation: "Pair with yogurt for a refreshing smoothie.",
+                calories: 60.0,
+                carbs: 15.15,
+                sugar: 13.94,
+                protein: 0.85,
+                fat: 0.36,
+                img: "images/fooditems/mangoes.jpg"
+            },
+            "Orange": {
+                impact: "High in Vitamin C, boosts immune system.",
+                relief: "Eat fresh or juice for hydration and vitamin intake.",
+                nutrient: "Vitamin C, Fiber",
+                allergens: "Citrus allergies may occur in some individuals.",
+                recommendation: "Great for a refreshing snack or juice.",
+                calories: 47.0,
+                carbs: 11.75,
+                sugar: 9.35,
+                protein: 0.94,
+                fat: 0.12,
+                img: "images/fooditems/oranges.jpg"
+            },
+            "Guava": {
+                impact: "High in fiber and vitamin C, supports digestion and immunity.",
+                relief: "Eat raw or in juice form for best benefits.",
+                nutrient: "Vitamin C, Fiber",
+                allergens: "Rare, but can cause throat irritation.",
+                recommendation: "Eat with salt and chili for a tangy twist.",
+                calories: 68.0,
+                carbs: 14.32,
+                sugar: 8.92,
+                protein: 2.55,
+                fat: 0.95,
+                img: "images/fooditems/guavas.jpg"
+            },
+            "Papaya": {
+                impact: "Aids digestion, rich in enzymes and vitamin C.",
+                relief: "Best eaten ripe to aid gut health.",
+                nutrient: "Vitamin C, Folate",
+                allergens: "May cause allergies in latex-sensitive people.",
+                recommendation: "Blend into smoothies or eat with a squeeze of lime.",
+                calories: 43.0,
+                carbs: 10.82,
+                sugar: 7.82,
+                protein: 0.47,
+                fat: 0.26,
+                img: "images/fooditems/papayas.jpg"
+            },
+            "Pomegranate": {
+                impact: "Boosts heart health, rich in antioxidants.",
+                relief: "Best eaten fresh or as juice for hydration.",
+                nutrient: "Vitamin C, Polyphenols",
+                allergens: "Rare, but some people may experience sensitivity.",
+                recommendation: "Add to salads or yogurt for extra crunch.",
+                calories: 83.0,
+                carbs: 18.7,
+                sugar: 13.67,
+                protein: 1.67,
+                fat: 1.17,
+                img: "images/fooditems/pomegranates.jpg"
+            },
+            "Jackfruit": {
+                impact: "Good for digestion and a plant-based meat alternative.",
+                relief: "Eat in moderation due to natural sugars.",
+                nutrient: "Vitamin B6, Fiber",
+                allergens: "Can cause bloating in some individuals.",
+                recommendation: "Use in curries or eat raw for a sweet treat.",
+                calories: 95.0,
+                carbs: 23.25,
+                sugar: 19.08,
+                protein: 1.72,
+                fat: 0.64,
+                img: "images/fooditems/jackfruits.jpg"
+            },
+            "Watermelon": {
+                impact: "Hydrating and rich in antioxidants.",
+                relief: "Best eaten cold for a refreshing effect.",
+                nutrient: "Vitamin C, Lycopene",
+                allergens: "Rare, but may cause oral allergy syndrome.",
+                recommendation: "Perfect as a summer snack or juice.",
+                calories: 30.0,
+                carbs: 7.55,
+                sugar: 6.2,
+                protein: 0.61,
+                fat: 0.15,
+                img: "images/fooditems/watermelons.jpg"
+            },
+            "Tomato": {
+                impact: "Rich in lycopene, good for heart and skin health.",
+                relief: "Best eaten raw or cooked for different benefits.",
+                nutrient: "Vitamin C, Lycopene",
+                allergens: "Can cause acid reflux in some people.",
+                recommendation: "Use in salads, curries, or juices.",
+                calories: 18.0,
+                carbs: 3.89,
+                sugar: 2.63,
+                protein: 0.88,
+                fat: 0.2,
+                img: "images/fooditems/tomatoes.jpg"
+            },
+            "Carrot": {
+                impact: "Supports eye health, rich in beta-carotene.",
+                relief: "Eat raw or cooked for maximum benefits.",
+                nutrient: "Vitamin A, Fiber",
+                allergens: "Rare, but may trigger pollen allergies.",
+                recommendation: "Add to salads, juices, or stir-fries.",
+                calories: 41.0,
+                carbs: 9.58,
+                sugar: 4.74,
+                protein: 0.93,
+                fat: 0.24,
+                img: "images/fooditems/carrots.jpg"
+            },
+            "Cucumber": {
+                impact: "Hydrating and good for digestion.",
+                relief: "Eat raw for hydration and cooling effect.",
+                nutrient: "Vitamin K, Potassium",
+                allergens: "Rare, but may cause mild oral allergy.",
+                recommendation: "Use in salads, raita, or detox water.",
+                calories: 15.0,
+                carbs: 3.63,
+                sugar: 1.67,
+                protein: 0.65,
+                fat: 0.11,
+                img: "images/fooditems/cucumbers.jpg"
+            },
+            "Brinjal": {
+                impact: "Rich in fiber and antioxidants, good for heart health.",
+                relief: "Best consumed cooked to avoid bitterness.",
+                nutrient: "Fiber, Potassium",
+                allergens: "May cause sensitivity in some people.",
+                recommendation: "Use in curries or grilled dishes.",
+                calories: 25.0,
+                carbs: 5.88,
+                sugar: 3.53,
+                protein: 0.98,
+                fat: 0.18,
+                img: "images/fooditems/brinjals.jpg"
+            },
+            "Pumpkin": {
+                impact: "Good for digestion and rich in vitamins.",
+                relief: "Eat in moderation to avoid bloating.",
+                nutrient: "Vitamin A, Fiber",
+                allergens: "Rare, but can cause mild digestive issues.",
+                recommendation: "Use in curries, soups, or sweets.",
+                calories: 26.0,
+                carbs: 6.5,
+                sugar: 2.76,
+                protein: 1.0,
+                fat: 0.1,
+                img: "images/fooditems/pumpkins.jpg"
+            },
+            "Pineapple": {
+                impact: "Rich in bromelain, aids digestion and reduces inflammation.",
+                relief: "Eat fresh for maximum enzyme benefits.",
+                nutrient: "Vitamin C, Manganese",
+                allergens: "May cause mouth irritation due to bromelain.",
+                recommendation: "Eat fresh or blend into a tropical smoothie.",
+                calories: 50.0,
+                carbs: 13.12,
+                sugar: 9.85,
+                protein: 0.54,
+                fat: 0.12,
+                img: "images/fooditems/pineapples.jpg"
+            },
+            "Custard Apple": {
+                impact: "Rich in antioxidants, boosts immunity and brain health.",
+                relief: "Best eaten when fully ripe for a creamy texture.",
+                nutrient: "Vitamin C, Magnesium",
+                allergens: "May cause throat irritation in sensitive individuals.",
+                recommendation: "Scoop out the pulp and eat as is or blend into milkshakes.",
+                calories: 94.0,
+                carbs: 23.64,
+                sugar: 21.0,
+                protein: 2.1,
+                fat: 0.6,
+                img: "images/fooditems/custard_apples.jpg"
+            },
+            "Gooseberry (Amla)": {
+                impact: "Boosts immunity and improves digestion.",
+                relief: "Best eaten raw or as juice for maximum benefits.",
+                nutrient: "Vitamin C, Antioxidants",
+                allergens: "Rare, but can cause acidity in some individuals.",
+                recommendation: "Use in chutneys, pickles, or consume as juice.",
+                calories: 44.0,
+                carbs: 10.18,
+                sugar: 4.42,
+                protein: 0.88,
+                fat: 0.58,
+                img: "images/fooditems/gooseberries.jpg"
+            },
+            "Sweet Lime (Mosambi)": {
+                impact: "Hydrating and rich in vitamin C.",
+                relief: "Drink as juice or eat raw for best benefits.",
+                nutrient: "Vitamin C, Potassium",
+                allergens: "Rare, but citrus allergies may occur.",
+                recommendation: "Perfect for a refreshing juice on hot days.",
+                calories: 43.0,
+                carbs: 9.3,
+                sugar: 8.2,
+                protein: 0.8,
+                fat: 0.3,
+                img: "images/fooditems/sweet_limes.jpg"
+            },
+            "Drumstick (Moringa)": {
+                impact: "Rich in iron and calcium, good for bones and immunity.",
+                relief: "Best consumed in curries or soups.",
+                nutrient: "Iron, Calcium",
+                allergens: "Rare, but can cause mild digestive issues.",
+                recommendation: "Use in sambhar or stir-fries.",
+                calories: 37.0,
+                carbs: 8.53,
+                sugar: 1.42,
+                protein: 2.1,
+                fat: 0.2,
+                img: "images/fooditems/drumsticks.jpg"
+            },
+            "Bitter Gourd (Karela)": {
+                impact: "Helps regulate blood sugar levels.",
+                relief: "Best consumed cooked to reduce bitterness.",
+                nutrient: "Vitamin C, Fiber",
+                allergens: "Rare, but excessive intake may cause stomach issues.",
+                recommendation: "Use in curries or as juice for diabetes management.",
+                calories: 17.0,
+                carbs: 3.7,
+                sugar: 1.95,
+                protein: 1.0,
+                fat: 0.17,
+                img: "images/fooditems/bittergourds.jpg"
+            },
+            "Bottle Gourd (Lauki)": {
+                impact: "Good for hydration and aids digestion.",
+                relief: "Best eaten cooked or as juice.",
+                nutrient: "Potassium, Vitamin C",
+                allergens: "Rare, but can cause bloating in some individuals.",
+                recommendation: "Use in curries, soups, or make lauki juice.",
+                calories: 15.0,
+                carbs: 3.69,
+                sugar: 2.5,
+                protein: 0.6,
+                fat: 0.02,
+                img: "images/fooditems/bottlegourds.jpg"
+            },
+            "Ridge Gourd (Turai)": {
+                impact: "Low in calories, good for digestion.",
+                relief: "Best consumed cooked for easier digestion.",
+                nutrient: "Fiber, Vitamin C",
+                allergens: "Rare, but can cause mild irritation.",
+                recommendation: "Use in curries or stir-fries.",
+                calories: 20.0,
+                carbs: 4.9,
+                sugar: 2.0,
+                protein: 1.2,
+                fat: 0.2,
+                img: "images/fooditems/ridgegourds.jpg"
+            },
+            "Ladyfinger (Bhindi)": {
+                impact: "Rich in fiber, good for digestion and blood sugar control.",
+                relief: "Best consumed cooked to reduce slime.",
+                nutrient: "Fiber, Vitamin C",
+                allergens: "Rare, but can cause mild irritation in some people.",
+                recommendation: "Use in stir-fries or curries.",
+                calories: 33.0,
+                carbs: 7.45,
+                sugar: 1.48,
+                protein: 1.93,
+                fat: 0.19,
+                img: "images/fooditems/ladyfingers.jpg"
+            },
+            "Onion": {
+                impact: "Good for heart health and reduces inflammation.",
+                relief: "Best consumed raw or cooked for different benefits.",
+                nutrient: "Vitamin C, Antioxidants",
+                allergens: "Can cause gastric issues in some individuals.",
+                recommendation: "Use in salads, curries, and chutneys.",
+                calories: 40.0,
+                carbs: 9.34,
+                sugar: 4.24,
+                protein: 1.1,
+                fat: 0.1,
+                img: "images/fooditems/onions.jpg"
+            },
+            "Garlic": {
+                impact: "Boosts immunity and improves heart health.",
+                relief: "Best eaten raw or cooked for benefits.",
+                nutrient: "Allicin, Vitamin C",
+                allergens: "May cause acid reflux or allergies in some people.",
+                recommendation: "Use in curries, soups, or as a health tonic.",
+                calories: 149.0,
+                carbs: 33.06,
+                sugar: 1.0,
+                protein: 6.36,
+                fat: 0.5,
+                img: "images/fooditems/garlics.jpg"
+            },
+            "Coriander Leaves": {
+                impact: "Rich in antioxidants, aids digestion and detoxification.",
+                relief: "Use fresh for best benefits.",
+                nutrient: "Vitamin A, Vitamin C",
+                allergens: "Rare, but can cause mild irritation in some people.",
+                recommendation: "Use in garnishing, chutneys, and curries.",
+                calories: 23.0,
+                carbs: 3.67,
+                sugar: 0.87,
+                protein: 2.13,
+                fat: 0.52,
+                img: "images/fooditems/corianderleaves.jpg"
+            },
+            "Coconut": {
+                impact: "Good for hydration and heart health, provides healthy fats.",
+                relief: "Best consumed fresh or as coconut water.",
+                nutrient: "Manganese, Healthy Fats",
+                allergens: "Rare, but can cause nut allergies.",
+                recommendation: "Drink coconut water or use in cooking.",
+                calories: 354.0,
+                carbs: 15.23,
+                sugar: 6.23,
+                protein: 3.33,
+                fat: 33.49,
+                img: "images/fooditems/coconuts.jpg"
+            },
+            "Tamarind": {
+                impact: "Aids digestion and is rich in antioxidants.",
+                relief: "Best consumed in small amounts to avoid acidity.",
+                nutrient: "Magnesium, Vitamin C",
+                allergens: "Rare, but excessive intake may cause acidity.",
+                recommendation: "Use in chutneys, curries, or drinks.",
+                calories: 239.0,
+                carbs: 62.5,
+                sugar: 38.8,
+                protein: 2.8,
+                fat: 0.6,
+                img: "images/fooditems/tamarinds.jpg"
+            },
+            "Muskmelon": {
+                impact: "Improves digestion, boosts immunity, and hydrates the body.",
+                relief: "Best eaten fresh as a snack or in fruit salads.",
+                nutrient: "Vitamin A, Vitamin C",
+                allergens: "Rare, but may cause mild throat irritation in some people.",
+                recommendation: "Pair with yogurt for a refreshing smoothie.",
+                calories: 34.0,
+                carbs: 8.16,
+                sugar: 7.86,
+                protein: 0.84,
+                fat: 0.19,
+                img: "images/fooditems/muskmelons.jpg"
+            },
+            "Sugarcane": {
+                impact: "Natural energy booster, aids digestion, and detoxifies the liver.",
+                relief: "Best consumed as fresh juice for maximum benefits.",
+                nutrient: "Calcium, Iron",
+                allergens: "Rare, but excessive intake may increase blood sugar levels.",
+                recommendation: "Drink fresh sugarcane juice with a dash of lemon and ginger.",
+                calories: 270.0,
+                carbs: 73.0,
+                sugar: 63.0,
+                protein: 0.5,
+                fat: 0.4,
+                img: "images/fooditems/sugarcanes.jpg"
+            },
+            "Paneer Tikka": {
+                impact: "Rich in protein and calcium, supports muscle and bone health.",
+                relief: "Best eaten grilled for a smoky flavor.",
+                nutrient: "Protein, Calcium",
+                allergens: "Dairy allergy may affect some individuals.",
+                recommendation: "Serve with mint chutney and onion rings.",
+                calories: 278.0,
+                carbs: 10.3,
+                sugar: 3.2,
+                protein: 17.1,
+                fat: 19.5,
+                img: "images/fooditems/paneertikka.jpg"
+            },
+            "Veg Manchurian": {
+                impact: "Crunchy and flavorful Indo-Chinese appetizer.",
+                relief: "Best eaten hot with spicy garlic sauce.",
+                nutrient: "Fiber, Vitamin C",
+                allergens: "May contain gluten from soy sauce.",
+                recommendation: "Serve with fried rice or noodles.",
+                calories: 220.0,
+                carbs: 28.5,
+                sugar: 5.0,
+                protein: 5.3,
+                fat: 10.2,
+                img: "images/fooditems/vegmanchurian.jpg"
+            },
+            "Hara Bhara Kabab": {
+                impact: "Rich in iron and fiber, good for digestion and energy.",
+                relief: "Best eaten with mint chutney for enhanced flavor.",
+                nutrient: "Iron, Fiber",
+                allergens: "Rare, but may contain gluten if breadcrumbs are used.",
+                recommendation: "Serve hot with lemon wedges and chutney.",
+                calories: 180.0,
+                carbs: 25.3,
+                sugar: 2.0,
+                protein: 7.1,
+                fat: 6.5,
+                img: "images/fooditems/harabharakabab.jpg"
+            },
+            "Dahi Ke Kebab": {
+                impact: "Rich in probiotics, supports gut health and digestion.",
+                relief: "Best eaten warm with tamarind chutney.",
+                nutrient: "Protein, Probiotics",
+                allergens: "Contains dairy, may not be suitable for lactose-intolerant individuals.",
+                recommendation: "Serve with spicy chutneys for extra flavor.",
+                calories: 260.0,
+                carbs: 22.4,
+                sugar: 3.0,
+                protein: 8.9,
+                fat: 14.2,
+                img: "images/fooditems/dahikekebab.jpg"
+            },
+            "Chicken Tikka": {
+                impact: "High in protein, supports muscle growth and immunity.",
+                relief: "Best eaten grilled for a smoky taste.",
+                nutrient: "Protein, Iron",
+                allergens: "May contain dairy if marinated with yogurt.",
+                recommendation: "Serve with mint chutney and lemon wedges.",
+                calories: 320.0,
+                carbs: 5.2,
+                sugar: 1.8,
+                protein: 27.5,
+                fat: 21.0,
+                img: "images/fooditems/chickentikka.jpg"
+            },
+            "Mutton Seekh Kebab": {
+                impact: "Rich in protein and iron, boosts energy and stamina.",
+                relief: "Best eaten hot with fresh salads.",
+                nutrient: "Protein, Iron",
+                allergens: "May contain gluten if breadcrumbs are used.",
+                recommendation: "Serve with mint chutney and onion rings.",
+                calories: 340.0,
+                carbs: 7.1,
+                sugar: 2.0,
+                protein: 28.4,
+                fat: 24.5,
+                img: "images/fooditems/muttonseekhkebab.jpg"
+            },
+            "Fish Amritsari": {
+                impact: "Rich in omega-3 fatty acids, supports heart health.",
+                relief: "Best eaten hot with lemon and chutney.",
+                nutrient: "Protein, Omega-3",
+                allergens: "May cause seafood allergies in sensitive individuals.",
+                recommendation: "Pair with mint chutney and a squeeze of lemon.",
+                calories: 290.0,
+                carbs: 15.6,
+                sugar: 1.5,
+                protein: 25.8,
+                fat: 14.2,
+                img: "images/fooditems/fishamritsari.jpg"
+            },
+            "Tandoori Prawns": {
+                impact: "High in lean protein and minerals, supports metabolism.",
+                relief: "Best eaten grilled with fresh lime.",
+                nutrient: "Protein, Zinc",
+                allergens: "Shellfish allergy risk.",
+                recommendation: "Serve with spicy yogurt dip.",
+                calories: 200.0,
+                carbs: 3.2,
+                sugar: 0.8,
+                protein: 25.5,
+                fat: 9.0,
+                img: "images/fooditems/tandooriprawns.jpg"
+            },
+            "Egg Keema": {
+                impact: "Rich in protein and essential vitamins, supports muscle health.",
+                relief: "Best eaten with naan or roti.",
+                nutrient: "Protein, Vitamin B12",
+                allergens: "Contains eggs, may cause egg allergies.",
+                recommendation: "Serve with pav or naan for a fulfilling dish.",
+                calories: 280.0,
+                carbs: 10.5,
+                sugar: 2.0,
+                protein: 22.8,
+                fat: 18.0,
+                img: "images/fooditems/eggkeema.jpg"
+            },
+            "Malai Chicken Kebab": {
+                impact: "Rich in protein and healthy fats, creamy and flavorful.",
+                relief: "Best eaten hot with a mild dip.",
+                nutrient: "Protein, Calcium",
+                allergens: "Contains dairy, may not be suitable for lactose-intolerant individuals.",
+                recommendation: "Serve with mint chutney and onion slices.",
+                calories: 330.0,
+                carbs: 6.2,
+                sugar: 1.6,
+                protein: 30.0,
+                fat: 22.5,
+                img: "images/fooditems/malaichickenkebab.jpg"
+            },
+            "Chicken 65": {
+                impact: "Spicy and protein-rich, aids muscle recovery.",
+                relief: "Best eaten hot with lemon wedges.",
+                nutrient: "Protein, Iron",
+                allergens: "May contain gluten if coated with flour.",
+                recommendation: "Serve with mint chutney or raita.",
+                calories: 300.0,
+                carbs: 15.2,
+                sugar: 2.0,
+                protein: 27.0,
+                fat: 18.5,
+                img: "images/fooditems/chicken65.jpg"
+            },
+            "Idli": {
+                impact: "Light and easy to digest, good probiotic food.",
+                relief: "Best eaten with sambar or coconut chutney.",
+                nutrient: "Carbs, Fiber",
+                allergens: "Contains fermented rice and lentils.",
+                recommendation: "Pair with filter coffee for a classic combo.",
+                calories: 40.0,
+                carbs: 8.0,
+                sugar: 0.2,
+                protein: 1.5,
+                fat: 0.3,
+                img: "images/fooditems/idli.jpg"
+            },
+            "Dosa": {
+                impact: "Fermented and rich in fiber, supports gut health.",
+                relief: "Best eaten crisp with chutney and sambar.",
+                nutrient: "Carbs, Protein",
+                allergens: "Contains rice and urad dal, may cause intolerance.",
+                recommendation: "Try masala dosa for a flavorful experience.",
+                calories: 168.0,
+                carbs: 30.0,
+                sugar: 1.0,
+                protein: 4.5,
+                fat: 3.5,
+                img: "images/fooditems/dosa.jpg"
+            },
+            "Vada": {
+                impact: "Crunchy and protein-rich, keeps you full.",
+                relief: "Best eaten hot with chutney or sambar.",
+                nutrient: "Protein, Iron",
+                allergens: "Contains urad dal, may not suit everyone.",
+                recommendation: "Pair with filter coffee.",
+                calories: 226.0,
+                carbs: 26.0,
+                sugar: 2.0,
+                protein: 6.0,
+                fat: 10.0,
+                img: "images/fooditems/vada.jpg"
+            },
+            "Upma": {
+                impact: "High in fiber and easy to digest.",
+                relief: "Best eaten warm with coconut chutney.",
+                nutrient: "Carbs, Fiber",
+                allergens: "Contains semolina, may contain gluten.",
+                recommendation: "Add vegetables for extra nutrition.",
+                calories: 195.0,
+                carbs: 35.0,
+                sugar: 3.5,
+                protein: 6.0,
+                fat: 4.0,
+                img: "images/fooditems/upma.jpg"
+            },
+            "Pongal": {
+                impact: "Rich in protein and easy on the stomach.",
+                relief: "Best eaten hot with chutney and sambar.",
+                nutrient: "Protein, Iron",
+                allergens: "Contains rice and lentils.",
+                recommendation: "Add black pepper and ghee for authentic taste.",
+                calories: 220.0,
+                carbs: 42.0,
+                sugar: 0.5,
+                protein: 7.0,
+                fat: 5.0,
+                img: "images/fooditems/pongal.jpg"
+            },
+            "Sambar": {
+                impact: "Rich in proteins and vitamins, good for digestion.",
+                relief: "Best eaten with rice or idli.",
+                nutrient: "Protein, Fiber",
+                allergens: "Contains tamarind and lentils.",
+                recommendation: "Add drumsticks for extra flavor.",
+                calories: 150.0,
+                carbs: 30.0,
+                sugar: 5.0,
+                protein: 8.0,
+                fat: 2.0,
+                img: "images/fooditems/sambar.jpg"
+            },
+            "Rasam": {
+                impact: "Aids digestion and has medicinal properties.",
+                relief: "Best eaten hot with rice.",
+                nutrient: "Vitamins, Antioxidants",
+                allergens: "Contains tamarind and black pepper.",
+                recommendation: "Drink like a soup for cold relief.",
+                calories: 50.0,
+                carbs: 10.0,
+                sugar: 2.0,
+                protein: 2.0,
+                fat: 1.0,
+                img: "images/fooditems/rasam.jpg"
+            },
+            "Kuzhi Paniyaram": {
+                impact: "Fermented and easy to digest, a light snack.",
+                relief: "Best eaten hot with chutney.",
+                nutrient: "Carbs, Fiber",
+                allergens: "Contains rice and lentils.",
+                recommendation: "Try spicy kara paniyaram for a kick.",
+                calories: 180.0,
+                carbs: 32.0,
+                sugar: 1.0,
+                protein: 4.5,
+                fat: 5.0,
+                img: "images/fooditems/paniyaram.jpg"
+            },
+            "Avial": {
+                impact: "Packed with vegetables and high in fiber.",
+                relief: "Best eaten with rice.",
+                nutrient: "Fiber, Vitamins",
+                allergens: "Contains coconut.",
+                recommendation: "Use coconut oil for an authentic taste.",
+                calories: 120.0,
+                carbs: 18.0,
+                sugar: 3.0,
+                protein: 4.0,
+                fat: 4.0,
+                img: "images/fooditems/avial.jpg"
+            },
+            "Payasam": {
+                impact: "Rich and sweet, provides instant energy.",
+                relief: "Best eaten warm or chilled.",
+                nutrient: "Calcium, Carbs",
+                allergens: "Contains milk and nuts.",
+                recommendation: "Try jaggery-based payasam for health benefits.",
+                calories: 250.0,
+                carbs: 40.0,
+                sugar: 30.0,
+                protein: 6.0,
+                fat: 5.0,
+                img: "images/fooditems/payasam.jpg"
+            },
+            "Masala Dosa": {
+                impact: "Fermented and filling, provides energy and gut-friendly bacteria.",
+                relief: "Best eaten with coconut chutney and sambar.",
+                nutrient: "Carbs, Fiber, Protein",
+                allergens: "Contains rice, lentils, and potatoes.",
+                recommendation: "Enjoy with a hot cup of filter coffee.",
+                calories: 250.0,
+                carbs: 40.0,
+                sugar: 1.5,
+                protein: 6.0,
+                fat: 6.0,
+                img: "images/fooditems/masaladosa.jpg"
+            },
+            "Rava Dosa": {
+                impact: "Crispy and light, easy to digest.",
+                relief: "Best eaten with spicy chutney.",
+                nutrient: "Carbs, Fiber",
+                allergens: "Contains semolina (gluten).",
+                recommendation: "Pair with onion or tomato chutney.",
+                calories: 180.0,
+                carbs: 30.0,
+                sugar: 2.0,
+                protein: 5.0,
+                fat: 4.0,
+                img: "images/fooditems/ravadosa.jpg"
+            },
+            "Onion Dosa": {
+                impact: "Crunchy and flavorful, good for digestion.",
+                relief: "Best eaten with spicy tomato chutney.",
+                nutrient: "Carbs, Fiber, Vitamin C",
+                allergens: "Contains rice, lentils, and onions.",
+                recommendation: "Top with green chilies for extra spice.",
+                calories: 220.0,
+                carbs: 38.0,
+                sugar: 3.0,
+                protein: 6.5,
+                fat: 5.0,
+                img: "images/fooditems/oniondosa.jpg"
+            },
+            "Chicken Dosa": {
+                impact: "Protein-rich dosa with a spicy and flavorful chicken stuffing.",
+                relief: "Best enjoyed with mint chutney or spicy tomato chutney.",
+                nutrient: "Protein, Carbs, Iron",
+                allergens: "Contains rice, lentils, and chicken.",
+                recommendation: "Pair with coconut chutney for a balanced taste.",
+                calories: 280.0,
+                carbs: 38.0,
+                sugar: 2.5,
+                protein: 12.0,
+                fat: 8.0,
+                img: "images/fooditems/chickendosa.jpg"
+            },
+            "Egg Dosa": {
+                impact: "High in protein, great for breakfast and muscle recovery.",
+                relief: "Best eaten hot with pepper and salt seasoning.",
+                nutrient: "Protein, Healthy Fats, Vitamin B12",
+                allergens: "Contains rice, lentils, and eggs.",
+                recommendation: "Pair with spicy chutney or black pepper for extra flavor.",
+                calories: 260.0,
+                carbs: 34.0,
+                sugar: 1.0,
+                protein: 11.0,
+                fat: 7.0,
+                img: "images/fooditems/eggdosa.jpg"
+            },
+            "Ghee Dosa": {
+                impact: "Rich in good fats, boosts digestion and metabolism.",
+                relief: "Best eaten with coconut chutney and sambar.",
+                nutrient: "Healthy Fats, Carbs, Vitamin A",
+                allergens: "Contains rice, lentils, and dairy (ghee).",
+                recommendation: "Enjoy with spicy sambar for a traditional experience.",
+                calories: 290.0,
+                carbs: 40.0,
+                sugar: 1.5,
+                protein: 6.0,
+                fat: 10.0,
+                img: "images/fooditems/gheedosa.jpg"
+            },
+
+            "Lemon Rice": {
+                impact: "Light and tangy, good for digestion and refreshing taste.",
+                relief: "Best eaten with fried papad or coconut chutney.",
+                nutrient: "Carbs, Vitamin C, Fiber",
+                allergens: "Contains rice, mustard seeds, and peanuts (optional).",
+                recommendation: "Pair with curd for a cooling effect.",
+                calories: 200.0,
+                carbs: 38.0,
+                sugar: 1.2,
+                protein: 4.0,
+                fat: 5.0,
+                img: "images/fooditems/lemonrice.jpg"
+            },
+
+            "Curd Rice": {
+                impact: "Cooling and probiotic-rich, improves digestion.",
+                relief: "Best eaten with pickles or fried chilies.",
+                nutrient: "Carbs, Calcium, Probiotics",
+                allergens: "Contains rice, dairy (curd), and mustard seeds.",
+                recommendation: "Add pomegranate seeds for extra taste and nutrition.",
+                calories: 190.0,
+                carbs: 35.0,
+                sugar: 2.0,
+                protein: 5.0,
+                fat: 3.0,
+                img: "images/fooditems/curdrice.jpg"
+            },
+            "Tamarind Rice (Puliyodarai)": {
+                impact: "Tangy and spicy, aids digestion and reduces bloating.",
+                relief: "Best eaten with fried papad or potato chips.",
+                nutrient: "Carbs, Iron, Fiber",
+                allergens: "Contains rice, tamarind, mustard seeds, and peanuts.",
+                recommendation: "Pair with coconut chutney for a balanced taste.",
+                calories: 220.0,
+                carbs: 42.0,
+                sugar: 3.0,
+                protein: 5.0,
+                fat: 6.0,
+                img: "images/fooditems/tamarindrice.jpg"
+            },
+            "Bisi Bele Bath": {
+                impact: "A wholesome dish rich in protein and fiber.",
+                relief: "Best eaten hot with ghee and chips.",
+                nutrient: "Protein, Fiber, Carbs",
+                allergens: "Contains rice, lentils, and peanuts (optional).",
+                recommendation: "Pair with boondi or papad for crunch.",
+                calories: 250.0,
+                carbs: 44.0,
+                sugar: 2.0,
+                protein: 7.5,
+                fat: 6.5,
+                img: "images/fooditems/bisibelebath.jpg"
+            },
+            "Coconut Rice": {
+                impact: "Mild and aromatic, good for energy and digestion.",
+                relief: "Best eaten with spicy vegetable curry.",
+                nutrient: "Healthy Fats, Fiber, Carbs",
+                allergens: "Contains rice, coconut, and mustard seeds.",
+                recommendation: "Pair with lemon pickle for extra flavor.",
+                calories: 210.0,
+                carbs: 39.0,
+                sugar: 1.5,
+                protein: 4.5,
+                fat: 5.5,
+                img: "images/fooditems/coconutrice.jpg"
+            },
+            "Paal Payasam": {
+                impact: "Rich in calcium and energy, a festive dessert.",
+                relief: "Best enjoyed warm or chilled.",
+                nutrient: "Calcium, Carbs, Sugar",
+                allergens: "Contains dairy and rice.",
+                recommendation: "Garnish with nuts for added crunch.",
+                calories: 250.0,
+                carbs: 45.0,
+                sugar: 25.0,
+                protein: 6.0,
+                fat: 5.0,
+                img: "images/fooditems/paalpayasam.jpg"
+            },
+            "Parotta": {
+                impact: "Layered and flaky Indian bread, rich in carbohydrates and energy.",
+                relief: "Best eaten with salna, kurma, or spicy curries.",
+                nutrient: "Carbohydrates, Fiber, Iron",
+                allergens: "Contains refined flour (maida), may not be suitable for gluten-sensitive individuals.",
+                recommendation: "Pair with chicken or mutton salna for a traditional taste.",
+                calories: 300.0,
+                carbs: 45.0,
+                sugar: 2.0,
+                protein: 6.0,
+                fat: 12.0,
+                img: "images/fooditems/parotta.jpg"
+            },
+            "Mysore Pak": {
+                impact: "A rich gram flour and ghee-based sweet, known for its melt-in-mouth texture.",
+                relief: "Enjoy in moderation due to high sugar and ghee content.",
+                nutrient: "Proteins, Healthy Fats",
+                allergens: "Contains ghee and sugar, high in calories.",
+                recommendation: "Best paired with filter coffee for a classic experience.",
+                calories: 400.0,
+                carbs: 50.0,
+                sugar: 40.0,
+                protein: 6.0,
+                fat: 20.0,
+                img: "images/fooditems/mysorepak.jpg"
+            },
+            "Kozhukattai": {
+                impact: "Steamed rice flour dumplings stuffed with jaggery and coconut.",
+                relief: "Light and nutritious, commonly offered during Vinayagar Chaturthi.",
+                nutrient: "Carbohydrates, Fiber",
+                allergens: "May not be suitable for those allergic to coconut.",
+                recommendation: "Eat warm with ghee for enhanced taste.",
+                calories: 150.0,
+                carbs: 30.0,
+                sugar: 15.0,
+                protein: 2.0,
+                fat: 3.0,
+                img: "images/fooditems/kozhukattai.jpg"
+            },
+            "Sweet Pongal": {
+                impact: "A festive rice-based dish cooked with jaggery, ghee, and moong dal.",
+                relief: "A healthy and energy-rich dish, perfect for morning meals.",
+                nutrient: "Protein, Iron",
+                allergens: "Contains ghee and nuts, may not be suitable for those with allergies.",
+                recommendation: "Garnish with cashews and cardamom for a richer taste.",
+                calories: 290.0,
+                carbs: 55.0,
+                sugar: 30.0,
+                protein: 6.0,
+                fat: 5.0,
+                img: "images/fooditems/sweetpongal.jpg"
+            },
+            "Black Forest Cake": {
+                impact: "A classic chocolate sponge cake layered with whipped cream and cherries.",
+                relief: "Perfect for celebrations and chocolate lovers.",
+                nutrient: "Carbohydrates, Calcium",
+                allergens: "Contains dairy and gluten, not suitable for lactose-intolerant or gluten-sensitive individuals.",
+                recommendation: "Best served chilled with a cherry on top.",
+                calories: 280.0,
+                carbs: 45.0,
+                sugar: 30.0,
+                protein: 4.0,
+                fat: 10.0,
+                img: "images/fooditems/blackforestcake.jpg"
+            },
+
+            "Red Velvet Cake": {
+                impact: "A moist, mildly chocolate-flavored cake with a signature red color.",
+                relief: "Soft and creamy, often paired with cream cheese frosting.",
+                nutrient: "Carbohydrates, Calcium",
+                allergens: "Contains dairy, eggs, and gluten.",
+                recommendation: "Serve with vanilla ice cream for extra richness.",
+                calories: 350.0,
+                carbs: 50.0,
+                sugar: 35.0,
+                protein: 5.0,
+                fat: 15.0,
+                img: "images/fooditems/redvelvetcake.jpg"
+            },
+
+            "Chocolate Truffle Cake": {
+                impact: "A rich and dense chocolate cake with layers of ganache.",
+                relief: "Perfect for chocolate lovers and special occasions.",
+                nutrient: "Iron, Antioxidants",
+                allergens: "Contains dairy, gluten, and eggs.",
+                recommendation: "Pair with a scoop of vanilla ice cream.",
+                calories: 400.0,
+                carbs: 55.0,
+                sugar: 40.0,
+                protein: 6.0,
+                fat: 18.0,
+                img: "images/fooditems/chocolatetrufflecake.jpg"
+            },
+            "Cheesecake": {
+                impact: "A creamy and rich dessert made with cream cheese and a biscuit crust.",
+                relief: "Indulgent and satisfying, best enjoyed in small portions.",
+                nutrient: "Calcium, Protein",
+                allergens: "Contains dairy, eggs, and gluten.",
+                recommendation: "Top with fresh berries or chocolate drizzle.",
+                calories: 450.0,
+                carbs: 45.0,
+                sugar: 35.0,
+                protein: 8.0,
+                fat: 25.0,
+                img: "images/fooditems/cheesecake.jpg"
+            },
+            "Gulab Jamun": {
+                impact: "Soft, deep-fried dumplings soaked in sugar syrup, loved for its rich sweetness.",
+                relief: "Warm and syrupy, perfect for festive occasions.",
+                nutrient: "Carbohydrates, Calcium",
+                allergens: "Contains dairy and gluten.",
+                recommendation: "Best served warm with vanilla ice cream.",
+                calories: 150.0,
+                carbs: 30.0,
+                sugar: 20.0,
+                protein: 2.0,
+                fat: 5.0,
+                img: "images/fooditems/gulabjamun.jpg"
+            },
+
+            "Rasgulla": {
+                impact: "Soft, spongy cheese balls soaked in light sugar syrup.",
+                relief: "A light and refreshing dessert, often enjoyed chilled.",
+                nutrient: "Calcium, Protein",
+                allergens: "Contains dairy.",
+                recommendation: "Best served chilled with a drizzle of rose water.",
+                calories: 120.0,
+                carbs: 28.0,
+                sugar: 22.0,
+                protein: 3.0,
+                fat: 1.0,
+                img: "images/fooditems/rasgulla.jpg"
+            },
+
+            "Jalebi": {
+                impact: "Crispy, deep-fried loops soaked in saffron-flavored sugar syrup.",
+                relief: "Crunchy and sweet, often paired with milk or curd.",
+                nutrient: "Carbohydrates, Iron",
+                allergens: "Contains gluten.",
+                recommendation: "Serve hot with rabri for an indulgent treat.",
+                calories: 200.0,
+                carbs: 50.0,
+                sugar: 40.0,
+                protein: 1.0,
+                fat: 7.0,
+                img: "images/fooditems/jalebi.jpg"
+            },
+
+            "Kaju Katli": {
+                impact: "Smooth and rich cashew-based sweet, often gifted during festivals.",
+                relief: "Mildly sweet and melts in the mouth.",
+                nutrient: "Protein, Healthy Fats",
+                allergens: "Contains nuts.",
+                recommendation: "Enjoy with a cup of chai for a festive feel.",
+                calories: 150.0,
+                carbs: 20.0,
+                sugar: 10.0,
+                protein: 4.0,
+                fat: 7.0,
+                img: "images/fooditems/kajukatli.jpg"
+            },
+
+
+
+
+        };
+
+        const qtyInput = document.getElementById("qty");
+        const subBtn = document.getElementById("sub");
+        const addBtn = document.getElementById("add");
+
+        let currentFoodData = null;
+        let imgEle = document.getElementById("foodImg");
+        function updateNutritionValues(quantity) {
+            if (!currentFoodData) return;
+
+            const multiplier = quantity / 100;
+
+            document.getElementById("cal").textContent = (currentFoodData.calories * multiplier).toFixed(2);
+            document.getElementById("carb").textContent = (currentFoodData.carbs * multiplier).toFixed(2);
+            document.getElementById("sug").textContent = (currentFoodData.sugar * multiplier).toFixed(2);
+            document.getElementById("pro").textContent = (currentFoodData.protein * multiplier).toFixed(2);
+            document.getElementById("fat").textContent = (currentFoodData.fat * multiplier).toFixed(2);
+        }
+
+        subBtn.addEventListener('click', () => {
+            let value = parseInt(qtyInput.value) || 0;
+            if (value >= 1) {
+                value--;
+                qtyInput.value = value;
+                updateNutritionValues(value);
+            }
+        });
+
+        addBtn.addEventListener('click', () => {
+            let value = parseInt(qtyInput.value) || 0;
+            value++;
+            qtyInput.value = value;
+            updateNutritionValues(value);
+        });
+
+        qtyInput.addEventListener('input', () => {
+            let value = parseInt(qtyInput.value) || 0;
+            if (value <= 1) {
+                value = 0;
+            }
+            qtyInput.value = value;
+            updateNutritionValues(value);
+        });
+
+        if (foodData[name]) {
+            currentFoodData = foodData[name];
+
+            document.getElementById("impact").textContent = currentFoodData.impact;
+            document.getElementById("relief").textContent = currentFoodData.relief;
+            document.getElementById("nutrient").textContent = currentFoodData.nutrient;
+            document.getElementById("allergens").textContent = currentFoodData.allergens;
+            document.getElementById("recommendation").textContent = currentFoodData.recommendation;
+            imgEle.src = currentFoodData.img;
+
+            updateNutritionValues(100);
+        } else {
+            document.querySelector(".r_content").innerHTML = "<h1 style='color:white;text-align:center;'>FOOD NOT FOUND IN THE DATABASE...</h1>";
         }
     </script>
 </body>
