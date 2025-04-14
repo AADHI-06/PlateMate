@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .head {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2vh 4vw;
+            padding-top: 0;
+            height: 13vh;
+            width: 100vw;
+            box-sizing: border-box;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .head img {
+            margin-top: 5vh;
+            height: 30vh;
+            max-height: 80px;
+            order: 1;
+        }
+
+        .tog {
+            display: flex;
+            margin-top: 0;
+            padding-top: 5vh;
+            order: 2;
+        }
+
+        .navi {
+            display: flex;
+            gap: 4vw;
+            margin-right: 1vw;
+        }
+
+        @media (max-width: 72.375rem) {
+            .head {
+                display: flex;
+            }
+
+            .tog {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 65vw;
+                height: 100vh;
+                background-color: crimson;
+                position: fixed;
+                top: 0;
+                right: 0;
+                z-index: 10;
+                opacity: 0.9;
+                padding-top: 15vh;
+                box-sizing: border-box;
+            }
+
+            .navi {
+                flex-direction: column;
+                flex-wrap: wrap;
+                padding-top: 5vh;
+                gap: 4vh;
+                order: 2;
+                align-items: center;
+            }
+
+            .head img {
+                order: 2;
+                margin-top: 2vh;
+                height: 20vh;
+                max-height: 60px;
+            }
+
+            .toggle {
+                display: block;
+                order: 2;
+                z-index: 100;
+                color: white;
+                margin-top: 0;
+                margin-right: 2vw;
+            }
+
+            .toggle:hover {
+                color: rgb(0, 0, 0);
+            }
+        }
+
+        .nav-item {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-decoration: none;
+            padding-bottom: 1vh;
+            border-radius: 0.625rem;
+            color: aliceblue;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:link {
+            color: aliceblue;
+        }
+
+        .nav-item a:visited,
+        .nav-item a:active,
+        .nav-item a:focus {
+            color: aliceblue;
+        }
+
+        .nav-item:hover {
+            color: crimson;
+            font-weight: bolder;
+            text-decoration: underline;
+        }
+
+        .space {
+            height: 14vh;
+            width: 100vw;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .gallery-container {
+            display: grid;
+            gap: 0.625rem;
+            grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+            padding: 1.25rem;
+            max-width: 75rem;
+            background: white;
+            border-radius: 0.5rem;
+            margin-bottom: 15vh;
+            box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0);
+            margin-top: 15vh;
+            width: 90vw;
+            box-sizing: border-box;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            aspect-ratio: 1/1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: all 0.5s ease;
+
+        }
+
+        .gallery-item::before {
+            content: attr(data-value);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(220, 20, 60, 0.8);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            z-index: 10;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .gallery-item:hover::before {
+            transform: translateY(0);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 0.6;
+        }
+
+
+
+
+        @media (max-width: 37.5rem) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+            }
+
+            .head img {
+                height: 15vh;
+            }
+
+            .gallery-item::before {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function toggle() {
+            const tog1 = document.querySelector(".tog");
+            if (tog1.style.display === "flex") {
+                tog1.style.display = "none";
+            }
+            else {
+                tog1.style.display = "flex";
+            }
+        }
+    </script>
+    <div class="head">
+        <img src="images/platematelogo.png" alt="platemate">
+        <div class="toggle" onclick="toggle()">&#9776;</div>
+        <div class="tog">
+            <div class="navi">
+                <a href="index.html #m1">
+                    <div class="nav-item">Home</div>
+                </a>
+                <a href="imggal.html">
+                    <div class="nav-item">Gallery</div>
+                </a>
+                <a href="index.html #abtus">
+                    <div class="nav-item">About Us</div>
+                </a>
+                <a href="index.html #foot">
+                    <div class="nav-item">Contact Us</div>
+                </a>
+                <a href="login.html" onclick="toggle()">
+                    <div class="nav-item">Login</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-container">
+        <div class="gallery-item" data-value="Apple">
+            <img src="./images/fooditems/apple.jpg" alt="Apple">
+        </div>
+        <div class="gallery-item" data-value="Avial">
+            <img src="./images/fooditems/avial.jpg" alt="Avial">
+        </div>
+        <div class="gallery-item" data-value="Banana">
+            <img src="./images/fooditems/bananas.jpg" alt="Banana">
+        </div>
+        <div class="gallery-item" data-value="Bitter Gourd (Karela)">
+            <img src="./images/fooditems/bittergourds.jpg" alt="Bitter Gourd (Karela)">
+        </div>
+        <div class="gallery-item" data-value="Black Forest Cake">
+            <img src="./images/fooditems/blackforestcake.jpg" alt="Black Forest Cake">
+        </div>
+        <div class="gallery-item" data-value="Bottle Gourd (Lauki)">
+            <img src="./images/fooditems/bottlegourds.jpg" alt="Bottle Gourd (Lauki)">
+        </div>
+        <div class="gallery-item" data-value="Brinjal">
+            <img src="./images/fooditems/brinjals.jpg" alt="Brinjal">
+        </div>
+        <div class="gallery-item" data-value="Carrot">
+            <img src="./images/fooditems/carrots.jpg" alt="Carrot">
+        </div>
+        <div class="gallery-item" data-value="Cheesecake">
+            <img src="./images/fooditems/cheesecake.jpg" alt="Cheesecake">
+        </div>
+        <div class="gallery-item" data-value="Chicken 65">
+            <img src="./images/fooditems/chicken65.jpg" alt="Chicken 65">
+        </div>
+        <div class="gallery-item" data-value="Chicken Dosa">
+            <img src="./images/fooditems/chickendosa.jpg" alt="Chicken Dosa">
+        </div>
+        <div class="gallery-item" data-value="Chicken Tikka">
+            <img src="./images/fooditems/chickentikka.jpg" alt="Chicken Tikka">
+        </div>
+        <div class="gallery-item" data-value="Chocolate Truffle Cake">
+            <img src="./images/fooditems/chocolatetrufflecake.jpg" alt="Chocolate Truffle Cake">
+        </div>
+        <div class="gallery-item" data-value="Coconut Rice">
+            <img src="./images/fooditems/coconutrice.jpg" alt="Coconut Rice">
+        </div>
+        <div class="gallery-item" data-value="Coconut">
+            <img src="./images/fooditems/coconuts.jpg" alt="Coconut">
+        </div>
+        <div class="gallery-item" data-value="Coriander Leaves">
+            <img src="./images/fooditems/corianderleaves.jpg" alt="Coriander Leaves">
+        </div>
+        <div class="gallery-item" data-value="Cucumber">
+            <img src="./images/fooditems/cucumbers.jpg" alt="Cucumber">
+        </div>
+        <div class="gallery-item" data-value="Curd Rice">
+            <img src="./images/fooditems/curdrice.jpg" alt="Curd Rice">
+        </div>
+        <div class="gallery-item" data-value="Custard Apple">
+            <img src="./images/fooditems/custard_apples.jpg" alt="Custard Apple">
+        </div>
+        <div class="gallery-item" data-value="Dahi Ke Kebab">
+            <img src="./images/fooditems/dahikekebab.jpg" alt="Dahi Ke Kebab">
+        </div>
+        <div class="gallery-item" data-value="Dosa">
+            <img src="./images/fooditems/dosa.jpg" alt="Dosa">
+        </div>
+        <div class="gallery-item" data-value="Drumstick (Moringa)">
+            <img src="./images/fooditems/drumsticks.jpg" alt="Drumstick (Moringa)">
+        </div>
+        <div class="gallery-item" data-value="Egg Dosa">
+            <img src="./images/fooditems/eggdosa.jpg" alt="Egg Dosa">
+        </div>
+        <div class="gallery-item" data-value="Egg Keema">
+            <img src="./images/fooditems/eggkeema.jpg" alt="Egg Keema">
+        </div>
+        <div class="gallery-item" data-value="Fish Amritsari">
+            <img src="./images/fooditems/fishamritsari.jpg" alt="Fish Amritsari">
+        </div>
+        <div class="gallery-item" data-value="Garlic">
+            <img src="./images/fooditems/garlics.jpg" alt="Garlic">
+        </div>
+        <div class="gallery-item" data-value="Ghee Dosa">
+            <img src="./images/fooditems/gheedosa.jpg" alt="Ghee Dosa">
+        </div>
+        <div class="gallery-item" data-value="Gooseberry (Amla)">
+            <img src="./images/fooditems/gooseberries.jpg" alt="Gooseberry (Amla)">
+        </div>
+        <div class="gallery-item" data-value="Guava">
+            <img src="./images/fooditems/guavas.jpg" alt="Guava">
+        </div>
+        <div class="gallery-item" data-value="Gulab Jamun">
+            <img src="./images/fooditems/gulabjamun.jpg" alt="Gulab Jamun">
+        </div>
+        <div class="gallery-item" data-value="Hara Bhara Kabab">
+            <img src="./images/fooditems/harabharakabab.jpg" alt="Hara Bhara Kabab">
+        </div>
+        <div class="gallery-item" data-value="Idli">
+            <img src="./images/fooditems/idli.jpg" alt="Idli">
+        </div>
+        <div class="gallery-item" data-value="Jackfruit">
+            <img src="./images/fooditems/jackfruits.jpg" alt="Jackfruit">
+        </div>
+        <div class="gallery-item" data-value="Jalebi">
+            <img src="./images/fooditems/jalebi.jpg" alt="Jalebi">
+        </div>
+        <div class="gallery-item" data-value="Kaju Katli">
+            <img src="./images/fooditems/kajukatli.jpg" alt="Kaju Katli">
+        </div>
+        <div class="gallery-item" data-value="Kozhukattai">
+            <img src="./images/fooditems/kozhukattai.jpg" alt="Kozhukattai">
+        </div>
+        <div class="gallery-item" data-value="Ladyfinger (Bhindi)">
+            <img src="./images/fooditems/ladyfingers.jpg" alt="Ladyfinger (Bhindi)">
+        </div>
+        <div class="gallery-item" data-value="Lemon Rice">
+            <img src="./images/fooditems/lemonrice.jpg" alt="Lemon Rice">
+        </div>
+        <div class="gallery-item" data-value="Malai Chicken Kebab">
+            <img src="./images/fooditems/malaichickenkebab.jpg" alt="Malai Chicken Kebab">
+        </div>
+        <div class="gallery-item" data-value="Mango">
+            <img src="./images/fooditems/mangoes.jpg" alt="Mango">
+        </div>
+        <div class="gallery-item" data-value="Masala Dosa">
+            <img src="./images/fooditems/masaladosa.jpg" alt="Masala Dosa">
+        </div>
+        <div class="gallery-item" data-value="Muskmelon">
+            <img src="./images/fooditems/muskmelons.jpg" alt="Muskmelon">
+        </div>
+        <div class="gallery-item" data-value="Mutton Seekh Kebab">
+            <img src="./images/fooditems/muttonseekhkebab.jpg" alt="Mutton Seekh Kebab">
+        </div>
+        <div class="gallery-item" data-value="Mysore Pak">
+            <img src="./images/fooditems/mysorepak.jpg" alt="Mysore Pak">
+        </div>
+        <div class="gallery-item" data-value="Onion Dosa">
+            <img src="./images/fooditems/oniondosa.jpg" alt="Onion Dosa">
+        </div>
+        <div class="gallery-item" data-value="Onion">
+            <img src="./images/fooditems/onions.jpg" alt="Onion">
+        </div>
+        <div class="gallery-item" data-value="Orange">
+            <img src="./images/fooditems/oranges.jpg" alt="Orange">
+        </div>
+        <div class="gallery-item" data-value="Paal Payasam">
+            <img src="./images/fooditems/paalpayasam.jpg" alt="Paal Payasam">
+        </div>
+        <div class="gallery-item" data-value="Paneer Tikka">
+            <img src="./images/fooditems/paneertikka.jpg" alt="Paneer Tikka">
+        </div>
+        <div class="gallery-item" data-value="Kuzhi Paniyaram">
+            <img src="./images/fooditems/paniyaram.jpg" alt="Kuzhi Paniyaram">
+        </div>
+        <div class="gallery-item" data-value="Papaya">
+            <img src="./images/fooditems/papayas.jpg" alt="Papaya">
+        </div>
+        <div class="gallery-item" data-value="Parotta">
+            <img src="./images/fooditems/parotta.jpg" alt="Parotta">
+        </div>
+        <div class="gallery-item" data-value="Payasam">
+            <img src="./images/fooditems/payasam.jpg" alt="Payasam">
+        </div>
+        <div class="gallery-item" data-value="Pineapple">
+            <img src="./images/fooditems/pineapples.jpg" alt="Pineapple">
+        </div>
+        <div class="gallery-item" data-value="Pomegranate">
+            <img src="./images/fooditems/pomegranates.jpg" alt="Pomegranate">
+        </div>
+        <div class="gallery-item" data-value="Pongal">
+            <img src="./images/fooditems/pongal.jpg" alt="Pongal">
+        </div>
+        <div class="gallery-item" data-value="Pumpkin">
+            <img src="./images/fooditems/pumpkins.jpg" alt="Pumpkin">
+        </div>
+        <div class="gallery-item" data-value="Rasam">
+            <img src="./images/fooditems/rasam.jpg" alt="Rasam">
+        </div>
+        <div class="gallery-item" data-value="Rasgulla">
+            <img src="./images/fooditems/rasgulla.jpg" alt="Rasgulla">
+        </div>
+        <div class="gallery-item" data-value="Rava Dosa">
+            <img src="./images/fooditems/ravadosa.jpg" alt="Rava Dosa">
+        </div>
+        <div class="gallery-item" data-value="Red Velvet Cake">
+            <img src="./images/fooditems/redvelvetcake.jpg" alt="Red Velvet Cake">
+        </div>
+        <div class="gallery-item" data-value="Ridge Gourd (Turai)">
+            <img src="./images/fooditems/ridgegourds.jpg" alt="Ridge Gourd (Turai)">
+        </div>
+        <div class="gallery-item" data-value="Sambar">
+            <img src="./images/fooditems/sambar.jpg" alt="Sambar">
+        </div>
+        <div class="gallery-item" data-value="Sugarcane">
+            <img src="./images/fooditems/sugarcanes.jpg" alt="Sugarcane">
+        </div>
+        <div class="gallery-item" data-value="Sweet Lime (Mosambi)">
+            <img src="./images/fooditems/sweet_limes.jpg" alt="Sweet Lime (Mosambi)">
+        </div>
+        <div class="gallery-item" data-value="Tamarind Rice">
+            <img src="./images/fooditems/tamarindrice.jpg" alt="Tamarind Rice">
+        </div>
+        <div class="gallery-item" data-value="Tamarind">
+            <img src="./images/fooditems/tamarinds.jpg" alt="Tamarind">
+        </div>
+        <div class="gallery-item" data-value="Tandoori Prawns">
+            <img src="./images/fooditems/tandooriprawns.jpg" alt="Tandoori Prawns">
+        </div>
+        <div class="gallery-item" data-value="Tomato">
+            <img src="./images/fooditems/tomatoes.jpg" alt="Tomato">
+        </div>
+        <div class="gallery-item" data-value="Upma">
+            <img src="./images/fooditems/upma.jpg" alt="Upma">
+        </div>
+        <div class="gallery-item" data-value="Vada">
+            <img src="./images/fooditems/vada.jpg" alt="Vada">
+        </div>
+        <div class="gallery-item" data-value="Veg Manchurian">
+            <img src="./images/fooditems/vegmanchurian.jpg" alt="Veg Manchurian">
+        </div>
+        <div class="gallery-item" data-value="Watermelon">
+            <img src="./images/fooditems/watermelons.jpg" alt="Watermelon">
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {searchresult(item);});
+        });
+        function searchresult(item) {
+            var foodname = item.dataset.value;
+
+            if (foodname) {
+                window.location.href = `resultfoods.html?foodname=${encodeURIComponent(foodname)}`;
+            } else {
+                alert("Enter the food name");
+            }
+        }
+    </script>
+</body>
+
+</html>
