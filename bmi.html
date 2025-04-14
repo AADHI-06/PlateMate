@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator</title>
+    <link rel="stylesheet" href="./bmi.css">  
     <style>
+        
+        :root {
+            font-size: 16px; 
+        }
+
         * {
             box-sizing: border-box;
             scroll-behavior: smooth;
         }
-
 
         body {
             margin: 0;
@@ -38,7 +43,7 @@
 
         .head img {
             margin-top: 5vh;
-            height: 300%;
+            height: 8rem; 
             order: 1;
         }
 
@@ -53,20 +58,15 @@
             display: flex;
             gap: 4vw;
             margin-right: 1vw;
-
-
         }
 
-        @media (max-width: 620px) {
-
+        @media (max-width: 72.375rem) { 
             .head {
                 display: flex;
             }
 
-
             .tog {
                 display: none;
-                /* Initially hidden */
                 flex-direction: column;
                 align-items: center;
                 width: 65vw;
@@ -79,24 +79,18 @@
                 opacity: 0.9;
             }
 
-
-
-
-
-
             .navi {
                 flex-direction: column;
                 flex-wrap: wrap;
                 padding-top: 5vh;
                 gap: 4vh;
                 order: 2;
-
             }
 
             .head img {
                 order: 2;
                 margin-top: 2vh;
-                height: 200%;
+                height: 12.5rem; 
             }
 
             .toggle {
@@ -106,7 +100,6 @@
                 color: white;
                 margin-top: 0;
                 margin-right: 2vw;
-
             }
 
             .toggle:hover {
@@ -116,24 +109,22 @@
             .buttondiv {
                 flex-direction: column;
                 gap: 2vh;
-                width: clamp(80px, 40vw, 200px);
+                width: clamp(5rem, 40vw, 12.5rem);
                 height: clamp(2.5vh, 5vh, 6vh);
-
             }
-
-
         }
 
         .nav-item {
             font-size: clamp(1rem, 2vw, 1.2rem);
+            text-decoration: none;
             padding-bottom: 1vh;
-            border-radius: 10px;
+            border-radius: 0.625rem;
             color: aliceblue;
             cursor: pointer;
             text-decoration: none;
         }
 
-        a:visited {
+        a:link {
             color: aliceblue;
         }
 
@@ -149,17 +140,14 @@
             text-decoration: underline;
         }
 
-
-
-
-
-
-
-
+        .space {
+            height: 14vh;
+            width: 100vw;
+            background-color: rgb(0, 0, 0);
+        }
 
         .main {
-            background-color: gray;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
                 url('images/bmibg.jpg');
             background-size: cover;
             background-position: center;
@@ -175,26 +163,32 @@
             text-align: center;
             background-size: cover;
             background-position: center;
-            padding: 20px;
+            padding: 1.11rem;
             color: white;
+            transition: transform 0.3s ease-in-out;
             padding-left: 5vw;
             padding-right: 5vw;
-            border-radius: 10px;
+            border-radius: 2rem;
             width: 70vw;
             height: 58vh;
-            margin: auto;
+            margin-top: 2vw;
+            margin-left: 15vw;
+            /* margin: auto; */
+        }
+
+        .container:hover {
+            transform: translateY(-0.3125rem);
         }
 
         button {
             background: crimson;
             color: white;
-
-            padding: 15px;
+            padding: 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 5rem;
             cursor: pointer;
             font-size: 1.2em;
-            width: 40%;
+            width: clamp(5rem, 40vw, 12.5rem);
         }
 
         button:hover {
@@ -202,19 +196,18 @@
         }
 
         .result {
-            margin-top: 20px;
+            margin-top: 20rem;
             font-size: 1.5em;
         }
 
         .gauge {
-            width: 100%;
-            max-width: 500px;
-            height: 50px;
+            width: 40vw;
+            height: 5vh;
             position: relative;
-            margin: 20px auto;
+            margin: 2vh auto;
             display: flex;
             align-items: center;
-            border-radius: 5px;
+            border-radius: 0.5rem;
             overflow: hidden;
         }
 
@@ -230,7 +223,6 @@
             justify-content: center;
             font-size: 1em;
             font-weight: bold;
-
         }
 
         .p {
@@ -258,24 +250,17 @@
             height: 4vh;
             background: rgb(255, 255, 255);
             position: relative;
-            transition: left 0.5s ease-out;
-            margin-left: 20.5vw;
-            animation-name: bmimove;
-            animation-duration: 4s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-timing-function: linear;
+            margin-left: 10vw;
+            transition: transform 2s ease-in-out;
         }
 
         @keyframes bmimove {
             0% {
                 left: 0vw;
             }
-
             100% {
                 left: 29vw;
             }
-
         }
 
         .measure {
@@ -295,7 +280,7 @@
             margin-top: 3vh;
         }
 
-        #bmrr {
+        #tdee {
             margin-top: 2vh;
             font-size: 1.4rem;
             color: rgb(69, 193, 251);
@@ -307,20 +292,243 @@
         }
 
         #calBMR {
-            margin-left: 0vw;
-            height: 5vh;
-            width: 20vw;
-            text-align: center;
-            padding-bottom: 2.3rem;
+            background-color: crimson;
+            height: 7vh;
+            width: clamp(9.375rem, 25vw, 18.75rem);
+            font-family: 'Lucida Sans', sans-serif;
+            border-radius: 2rem;
+            transition: transform 0.3s ease-in-out;
+            font-size: clamp(1rem, 1.2vw, 1.4rem);
+            color: aliceblue;
+            cursor: pointer;
+            margin-top: 1vh;
         }
 
         .bmidisp {
             font-size: 2rem;
         }
-    </style>
+
+        .main2 {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/macrobg.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            padding: 0%;
+            margin: 0;
+            height: 86vh;
+            display: none;
+            padding-top: 15vh;
+        }
+
+        .container1 {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            padding: 1.11rem;
+            color: rgb(255, 255, 255);
+            padding-left: 5vw;
+            padding-right: 5vw;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 2rem;
+            width: 70vw;
+            font-size: 1.5rem;
+            height: 74vh;
+            margin-top: -8vh;
+            margin-left: 15vw;
+        }
+
+        .container1:hover {
+            transform: translateY(-0.3125rem);
+        }
+
+        #activity {
+            margin-top: 2vh;
+            height: 4vh;
+            font-size: 1rem;
+            width: 20vw;
+            border-radius: 0.6rem;
+            box-shadow: 0.5rem 0.5rem 2rem gray;
+        }
+
+        #wei {
+            margin-top: 2vh;
+            height: 4vh;
+            font-size: 1rem;
+            width: 20vw;
+            border-radius: 0.6rem;
+            box-shadow: 0.5rem 0.5rem 2rem gray;
+        }
+
+        #tdee {
+            font-size: 1rem;
+            margin-top: 2vh;
+            font-size: 1rem;
+            color: rgb(0, 0, 0);
+            height: 15vh;
+            width: 20vw;
+            padding: 1rem;
+            text-align: center;
+            margin-right: 7vw;
+            border-radius: 1rem;
+            background-color: rgb(255, 255, 255);
+            float: right;
+            box-shadow: 0.3em 0.3em 0.9em crimson;
+        }
+
+        #bmrr {
+            margin-top: 2vh;
+            font-size: 1rem;
+            color: rgb(0, 0, 0);
+            height: 15vh;
+            margin-left: 7vw;
+            text-align: center;
+            padding: 1rem;
+            width: 20vw;
+            box-shadow: 0.3em 0.3em 0.9em crimson;
+            border-radius: 1rem;
+            background-color: rgb(255, 255, 255);
+            float: left;
+        }
+
+        .macro {
+            height: 25vh;
+            margin-top: 5vh;
+            width: 60vw;
+        }
+
+        #carb {
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            border-radius: 1rem;
+            padding-top: 2vw;
+            color: black;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-top: 5px solid #ffd166;
+            width: 15vw;
+            float: left;
+            margin-top: 0vh;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #carb:hover {
+            transform: scale(1.1);
+            box-shadow: 0.5em 0.5em 0.5em rgb(0, 0, 0);
+        }
+
+        #fat {
+            height: 100%;
+            padding-top: 2vw;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-top: 5px solid #45c1fb;
+            background-color: rgb(255, 255, 255);
+            width: 15vw;
+            border-radius: 1rem;
+            margin-left: 22.5vw;
+            color: black;
+            transition: transform 0.3s ease-in-out;
+            margin-top: -15vh;
+        }
+
+        #fat:hover {
+            transform: scale(1.1);
+            box-shadow: 0.5em 0.5em 0.5em rgb(0, 0, 0);
+        }
+
+        #protein {
+            height: 100%;
+            color: black;
+            font-size: 1rem;
+            padding-top: 2vw;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-top: 5px solid #ff6b6b;
+            transition: transform 0.3s ease-in-out;
+            background-color: rgb(255, 255, 255);
+            width: 15vw;
+            float: right;
+            margin-top: -8vh;
+        }
+
+        #protein:hover {
+            transform: scale(1.1);
+            box-shadow: 0.5em 0.5em 0.5em rgb(0, 0, 0);
+        }
+        @media (max-width: 62rem) { 
+            .container, .container1 {
+                width: 85vw;
+                margin-left: 7.5vw;
+            }
+            
+            #tdee, #bmrr {
+                width: 30vw;
+                margin-right: 5vw;
+                margin-left: 5vw;
+            }
+            
+            #carb, #fat, #protein {
+                width: 25vw;
+                margin-left: 10vw;
+            }
+        }
+
+        @media (max-width: 48rem) { 
+            .container, .container1 {
+                width: 90vw;
+                margin-left: 5vw;
+                height: auto;
+                padding-bottom: 2rem;
+            }
+            
+            #tdee, #bmrr {
+                width: 40vw;
+                float: none;
+                margin: 2vh auto;
+            }
+            
+            .macro {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            #carb, #fat, #protein {
+                width: 60vw;
+                float: none;
+                margin: 2vh auto;
+            }
+        }
+
+        @media (max-width: 36rem) { 
+            #age, #activity, #wei {
+                width: 60vw;
+            }
+            
+            .head img {
+                height: 10rem;
+            }
+        }
+    
+
+    </style>   
+       
 </head>
 
 <body>
+    <script>
+
+        function toggle() {
+            const tog1 = document.querySelector(".tog");
+            if (tog1.style.display === "flex") {
+                tog1.style.display = "none";
+            }
+            else {
+                tog1.style.display = "flex";
+            }
+        }
+
+    </script>
     <div class="main">
 
         <div class="head">
@@ -330,7 +538,7 @@
 
                 <div class="navi">
                     <a href="index.html">
-                        <div class="nav-item">Home</div>
+                        <div class="nav-item" style="text-decoration: none;">Home</div>
                     </a>
                     <div class="nav-item">Gallery</div>
                     <a href="index.html">
@@ -349,8 +557,8 @@
 
         <div class="container" id="container">
             <div class="measure">
-                <h2 style="font-size: 3rem;">BMI CALCULATOR</h2>
-                <div class="gauge">
+                <h2 style="font-size:clamp(14px, 4vw, 200px);" id="txtbmic">BMI CALCULATOR</h2>
+                <div class="gauge" id="gauge">
                     <div class="p">UW</div>
                     <div class="q">normal</div>
                     <div class="r">over weight</div>
@@ -366,29 +574,72 @@
             <br><br>
             <center>
                 <div class="bmrdiv" id="bmrdiv">
-                    <label for="age" style="font-size: 1.9rem;">Enter you age: </label>
-                    <br>
+                    <label for="age" style="font-size: 1.5rem;">Enter you age: </label>
                     <input type="text" id="age">
                     <br><br>
                     <br>
-                    <label for="gender" style="font-size: 1.9rem;">Choose the gender :</label><br>
+                    <label for="gender" style="font-size: 1.5rem;margin-left: -3.7vw;">Choose the gender :</label>
                     <input type="radio" name="gen" id="male" value="male">
                     <label for="male" style="font-size: 1.5rem;margin-right: 3vw;">Male</label>
                     <input type="radio" name="gen" id="female" value="female">
                     <label for="female" style="font-size: 1.5rem;">Female</label>
-                    <div id="bmrr"></div>
+                    <br><br>
                     <br>
-                    <button onclick="bmr()">Calculate</button>
+                    <label style="font-size: 1.5rem;margin-right: 1vw;margin-left: 1.7vw;">Activity Level:</label>
+                    <select id="activity">
+                        <option>Select</option>
+                        <option value="1.2">No exercise</option>
+                        <option value="1.375">1-3 days/week</option>
+                        <option value="1.55">3-5 days/week</option>
+                        <option value="1.725">6-7 days/week</option>
+                        <option value="1.9">Very hard exercise</option>
+                    </select>
+                    <br><br><br>
+                    <label for="wei" style="font-size: 1.5rem;margin-right: 1vw;margin-left: 6vw;">Desierd Fitness Goal
+                        :</label>
+                    <select name="wei" id="wei">
+                        <option value="loss">Weight Loss</option>
+                        <option value="maintain">Maintain weight</option>
+                        <option value="gain">Weight Gain</option>
+                    </select>
+                    <br><br><br>
+                    <a href="#a2"><button onclick="bmr()"
+                            style="transition: transform 0.3s ease-in-out;">Calculate</button></a>
                 </div>
             </center>
 
         </div>
     </div>
+    <div class="space" id="a2"></div>
+    <div class="main2" id="main2">
+        <div class="container1">
+            <h2>YOUR NUTRITION PLAN</h2>
+            <div id="bmrr"></div>
+            <div id="tdee"></div>
+            <br><br>
+            <p style="font-size: 2rem;font-weight: bold;margin-top: 13vh;"><i>Recommended Macronutrients</i>
+            </p>
+            <div class="macro">
+
+                <div id="carb"></div>
+                <br><br>
+                <div id="protein"></div>
+                <br><br>
+                <div id="fat"></div>
+            </div>
+
+
+        </div>
+    </div>
     <script>
         function divdisp() {
-            document.getElementById("container").style.height = `${80}vh`;
+            document.getElementById("txtbmic").innerHTML = "&#127860;Calorie Intake";
+            document.getElementById("container").style.height = `${84}vh`;
             document.getElementById("bmrdiv").style.display = "block";
             document.getElementById("calBMR").style.display = "none";
+            document.getElementById("gauge").style.display = "none";
+            document.getElementById("needle").style.display = "none";
+            document.getElementById("bmidisp").style.display = "none";
         }
         const hwvalue = new URLSearchParams(window.location.search);
         const height = hwvalue.get("he");
@@ -405,12 +656,12 @@
 
             var position;
             if (bmi <= 18.5) {
-                position = 17;
+                position = 4;
                 bmilevel = "Your are under weight";
                 document.getElementById('bmidisp').style.color = "blue";
             }
             else if (bmi > 18.5 & bmi <= 24.9) {
-                position = 20;
+                position = 12;
                 bmilevel = "Your are in normal weight";
                 document.getElementById('bmidisp').style.color = "palegreen";
 
@@ -422,24 +673,27 @@
 
             }
             else if (bmi >= 30 & bmi < 34.9) {
-                position = 20;
+                position = 28;
                 bmilevel = "Your are obese weight";
                 document.getElementById('bmidisp').style.color = "orange";
 
             }
             else {
+                position = 36;
                 bmilevel = "Your are Extremely obese";
                 document.getElementById('bmidisp').style.color = "red";
             }
             document.getElementById('bmidisp').innerText = "Your BMI: " + bmi.toFixed(2) + " [" + bmilevel + "]";
-
-            needle.style.marginLeft = `${position} vw`;
+            setTimeout(() => {
+                document.getElementById("needle").style.transform = `translateX(${position}vw)`;
+            }, 1000);
         } else {
             document.getElementById('bmidisp').innerText = "Please enter valid inputs.";
         }
 
         function bmr() {
             var age = document.getElementById("age").value;
+            document.getElementById("main2").style.display = "block";
             var gender = document.querySelector('input[name=gen]:checked');
             var bmr;
             if (!age || !gender) {
@@ -454,12 +708,51 @@
 
             if (gender.value === "male" & age > 0) {
                 bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
-                document.getElementById("bmrr").innerHTML = "Your BMR value : " + bmr;
+                document.getElementById("bmrr").innerHTML = "Your Basal Metabolic Rate[BMR] value :<br><br> " + `<b style="font-size:1.2rem">${Math.abs(bmr)}</b>` + "<br>" + `<p style="color:gray;">Calories your body needs at complete rest</p>`;
+                document.getElementById("bmrr").style.color = "black";
             }
             if (gender.value === "female" & age > 0) {
                 bmr = 10 * weight + 6.25 * height - 5 * age + 161;
-                document.getElementById("bmrr").innerHTML = "Your BMR value : " + bmr;
+                document.getElementById("bmrr").innerHTML = "Your Basal Metabolic Rate[BMR] value :<br><br> " + `<b style="font-size:1.2rem">${Math.abs(bmr)}</b>` + "<br>" + `<p style="color:gray;">Calories your body needs at complete rest</p>`;
+                document.getElementById("bmrr").style.color = "black";
             }
+            var actvalue = document.getElementById("activity").value;
+            var tdee = bmr * actvalue;
+            var tdee1;
+            var tdee2;
+            var carb1;
+            var carb2;
+            var pro1;
+            var pro2;
+            var fat1;
+            var fat2;
+            var wei = document.getElementById("wei").value;
+            if (wei == "loss") {
+                tdee1 = tdee - 200;
+                tdee2 = tdee - 500;
+                document.getElementById("tdee").innerHTML = "You have to take <br><br>" + `<b style="font-size:1.2rem;">${Math.abs(tdee).toFixed(2)}</b>` + " - " + `<b style="font-size:1.2rem;">${Math.abs(tdee2).toFixed(2)}</b>` + "<br><br> Cal/day  to lose 0.25–0.5 kg per week.";
+
+            }
+            else if (wei == "gain") {
+                tdee1 = tdee + 200;
+                tdee2 = tdee + 500;
+                document.getElementById("tdee").innerHTML = "You have to take <br><br>" + `<b style="font-size:1.2rem;">${Math.abs(tdee1).toFixed(2)}</b>` + " - " + `<b style="font-size:1.2rem;">${Math.abs(tdee2).toFixed(2)}</b>` + "<br> <br>Cal/day  to lose 0.25–0.5 kg per week.";
+
+            }
+            else {
+                document.getElementById("tdee").innerHTML = "You have to take <br><br>" + `<b style="font-size:1.2rem;">${Math.abs(tdee).toFixed(2)}</b>` + "<br><br> Cal/day  to lose 0.25–0.5 kg per week.";
+
+            }
+            carb1 = tdee * (45 / 100);
+            carb2 = tdee * (65 / 100);
+            pro1 = tdee * (10 / 100);
+            pro2 = tdee * (35 / 100);
+            fat1 = tdee * (20 / 100);
+            fat2 = tdee * (35 / 100);
+            document.getElementById("carb").innerHTML = `<b style="font-size:1.2rem;">&#127838;CARBOHYDRATES</b><br><br> ` + Math.abs(carb1).toFixed(2) + "KCal - " + Math.abs(carb2).toFixed(2) + "KCal<br><br>" + `<span style="color:gray;font-size:1.2rem;">per day</span>`;
+            document.getElementById("protein").innerHTML = `<b style="font-size:1.2rem;">&#129385;PROTEINS</b><br><br> ` + Math.abs(pro1).toFixed(2) + "KCal - " + Math.abs(pro2).toFixed(2) + "KCal<br><br>" + `<span style="color:gray;font-size:1.2rem;">per day</span>`;
+            document.getElementById("fat").innerHTML = `<b style="font-size:1.2rem;">&#129472;FATS</b><br><br> ` + Math.abs(fat1).toFixed(2) + "KCal - " + Math.abs(fat2).toFixed(2) + "KCal<br><br>" + `<span style="color:gray;font-size:1.2rem;">per day</span>`;
+
 
         }
     </script>
